@@ -14,6 +14,8 @@ type
   private
     FMongoCampo: String;
     FMongoTipoCampo: TCampo;
+    FAutoInc: Boolean;
+    FCampoChave: Boolean;
   protected
 
   public
@@ -25,6 +27,8 @@ type
   published
     property MongoTipoCampo : TCampo  read FMongoTipoCampo write FMongoTipoCampo default TCampo.Texto;
     property MongoCampo : String read FMongoCampo write FMongoCampo;
+    property AutoInc : Boolean read FAutoInc write FAutoInc;
+    property CampoChave : Boolean read FCampoChave write FCampoChave;
   end;
 
 procedure Register;
