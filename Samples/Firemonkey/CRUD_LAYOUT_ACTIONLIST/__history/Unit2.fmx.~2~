@@ -1,0 +1,201 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 209
+  ClientWidth = 502
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Client
+    Size.Width = 502.000000000000000000
+    Size.Height = 209.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object EditMongo1: TEditMongo
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 112.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoTipoCampo = Numerico
+      MongoCampo = 'CODIGO'
+      AutoInc = True
+      CampoChave = True
+    end
+    object ToolBar1: TToolBar
+      Align = Bottom
+      Position.Y = 169.000000000000000000
+      Size.Width = 502.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object Button1: TButton
+        Action = MongoInsert1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 262.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Visible = True
+      end
+      object Button2: TButton
+        Action = MongoDelete1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 422.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        Visible = True
+      end
+      object Button3: TButton
+        Action = MongoSelectEdit1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 182.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Visible = True
+      end
+      object Button4: TButton
+        Action = MongoUpdate1
+        Align = Right
+        Enabled = True
+        ImageIndex = -1
+        Position.X = 342.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Visible = True
+      end
+      object Button5: TButton
+        Action = MongoLimpar1
+        Align = Left
+        Enabled = True
+        ImageIndex = -1
+        Size.Width = 80.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+        Visible = True
+      end
+    end
+    object EditMongo2: TEditMongo
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 4
+      Position.X = 112.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 169.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoCampo = 'Nome'
+      AutoInc = False
+      CampoChave = False
+    end
+    object EditMongo3: TEditMongo
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      Position.X = 112.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoTipoCampo = Numerico
+      MongoCampo = 'Idade'
+      AutoInc = False
+      CampoChave = False
+    end
+    object EditMongo4: TEditMongo
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 2
+      Position.X = 112.000000000000000000
+      Position.Y = 104.000000000000000000
+      MongoCampo = 'Telefone'
+      AutoInc = False
+      CampoChave = False
+    end
+    object Label1: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 32.000000000000000000
+      Text = 'C'#243'digo (AutoInc)'
+    end
+    object Label2: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 56.000000000000000000
+      Text = 'Nome:'
+    end
+    object Label3: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 80.000000000000000000
+      Text = 'Idade:'
+    end
+    object Label4: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 104.000000000000000000
+      Text = 'Telefone'
+    end
+  end
+  object MongoConexao1: TMongoConexao
+    Database = 'COMP_LIVE'
+    Host = 'localhost'
+    Porta = 27017
+    Ativar = True
+    Left = 376
+    Top = 8
+  end
+  object MongoQuery1: TMongoQuery
+    MongoConexao = MongoConexao1
+    Ativar = False
+    Collection = 'CLIENTES'
+    Left = 416
+    Top = 8
+  end
+  object ActionList1: TActionList
+    Left = 456
+    Top = 8
+    object MongoInsert1: TMongoInsert
+      Category = 'Mongo Components'
+      Text = 'Insert'
+      MongoQuery = MongoQuery1
+      Layout = Layout1
+    end
+    object MongoUpdate1: TMongoUpdate
+      Category = 'Mongo Components'
+      Text = 'Update'
+      MongoQuery = MongoQuery1
+      Layout = Layout1
+    end
+    object MongoDelete1: TMongoDelete
+      Category = 'Mongo Components'
+      Text = 'Delete'
+      MongoQuery = MongoQuery1
+      Layout = Layout1
+    end
+    object MongoSelectEdit1: TMongoSelectEdit
+      Category = 'Mongo Components'
+      Text = 'Find'
+      MongoQuery = MongoQuery1
+      Layout = Layout1
+    end
+    object MongoLimpar1: TMongoLimpar
+      Category = 'Mongo Components'
+      Text = 'Novo'
+      MongoQuery = MongoQuery1
+      Layout = Layout1
+    end
+  end
+end

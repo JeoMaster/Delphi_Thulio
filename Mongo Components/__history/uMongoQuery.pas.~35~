@@ -1,0 +1,101 @@
+unit uMongoQuery;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, mongoWire, bsonDoc, bsonUtils, FMX.Forms,
+  uEditMongo, uMongoDocument, System.Generics.Collections, FMX.ActnList;
+
+type
+  TMongoQuery = class(TComponent)
+    private
+      FMongoWire : TMongoWire;
+      FAtivar : Boolean;
+      FCollection : String;
+      procedure setAtivar(const Value: boolean);
+      procedure preencherMongoDoc(Form : TForm; var MongoDoc : TMongoDocument);
+    public
+       FMongoWireQuery : TMongoWireQuery;
+       constructor Create(AOwner: TComponent); override;
+       function InserirForm(Form : TForm) : Boolean;
+    published
+      property MongoWire : TMongoWire read FMongoWire write FMongoWire;
+      property Ativar : Boolean read FAtivar write setAtivar;
+      property Collection : String read FCollection write FCollection;
+  end;
+
+procedure Register;
+
+implementation
+
+procedure Register;
+begin
+  RegisterComponents('Mongo Components', [TMongoQuery]);
+  //RegisterActions('Mongo Components', [TMongoQuery], nil);
+end;
+
+constructor TMongoQuery.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+end;
+
+procedure TMongoQuery.setAtivar(const Value: boolean);
+begin
+  FMongoWireQuery := TMongoWireQuery.Create(FMongoWire);
+  FAtivar := Value;
+end;
+
+function TMongoQuery.InserirForm(Form: TForm) : Boolean;
+var
+  d : IBSONDocument;
+  MongoDoc : TMongoDocument;
+  i : Integer;
+begin
+  Result := True;
+  d := nil;
+  MongoDoc := TMongoDocument.Create;
+  try
+    try
+      preencherMongoDoc(Form, MongoDoc);
+      MongoDoc.convertBSON(d);
+      FMongoWire.Insert(FCollection, d);
+    except
+      Result := False;
+    end;
+  finally
+    MongoDoc.Free;
+  end;
+end;
+
+procedure TMongoQuery.preencherMongoDoc(Form: TForm; var MongoDoc: TMongoDocument);
+var
+  i : Integer;
+begin
+  for i:= 0 to (Form.ComponentCount -1) do
+  begin
+    if (Form.Components[i] is TEditMongo) then
+    begin
+      case TEditMongo(Form.Components[i]).MongoTipoCampo of
+        Texto :
+          begin
+            MongoDoc.addKey(TEditMongo(Form.Components[i]).MongoCampo, TEditMongo(Form.Components[i]).Text);
+          end;
+        Numerico :
+          begin
+            MongoDoc.addKey(TEditMongo(Form.Components[i]).MongoCampo, TEditMongo(Form.Components[i]).toNumerico);
+          end;
+        Moeda :
+          begin
+            MongoDoc.addKey(TEditMongo(Form.Components[i]).MongoCampo, TEditMongo(Form.Components[i]).toMoeda);
+          end;
+        DataHora :
+          begin
+            MongoDoc.addKey(TEditMongo(Form.Components[i]).MongoCampo, TEditMongo(Form.Components[i]).toDataHora);
+          end;
+      end;
+    end;
+  end;
+end;
+
+
+end.

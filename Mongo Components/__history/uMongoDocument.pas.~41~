@@ -1,0 +1,129 @@
+unit uMongoDocument;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, mongoWire, bsonDoc, FMX.Forms,
+  System.Generics.Collections, JSON, bsonUtils;
+
+type
+  TKeys = Record
+    Key : String;
+    Value : OleVariant;
+  End;
+
+type
+  TDocument = Record
+    Key : String;
+    Values : TList<TKeys>;
+  End;
+
+type
+  TMongoDocument = class
+    private
+      FKeys : TList<TKeys>;
+      FDocuments : TList<TDocument>;
+    public
+      constructor Create;
+      Destructor  Destroy;
+      procedure addKey(Key : String; Value : OleVariant);
+      procedure addDocument(Key : String; Values : TList<TKeys>);
+      procedure convertBSON(var DOCBSON : IBSONDocument);
+    published
+      property Keys : TList<TKeys> read FKeys write FKeys;
+      property Documents : TList<TDocument> read FDocuments write FDocuments;
+  end;
+
+implementation
+
+constructor TMongoDocument.Create;
+begin
+  FKeys := TList<TKeys>.Create;
+  FDocuments := TList<TDocument>.Create;
+end;
+
+destructor TMongoDocument.Destroy;
+begin
+  FKeys.Free;
+  FDocuments.Free;
+end;
+
+procedure TMongoDocument.addKey(Key: string; Value: OleVariant);
+var
+  newKey : TKeys;
+begin
+  newKey.Key := Key;
+  newKey.Value := Value;
+  Keys.Add(newKey);
+end;
+
+procedure TMongoDocument.addDocument(Key: string; Values: TList<uMongoDocument.TKeys>);
+var
+  newDocument : TDocument;
+begin
+  newDocument.Key := Key;
+  newDocument.Values := Values;
+  FDocuments.Add(newDocument);
+end;
+
+procedure TMongoDocument.convertBSON(var DOCBSON : IBSONDocument);
+var
+   J1, J2 : TJSONObject;
+   JA : Array of TJSONObject;
+   //L1 : TJSON
+   K1, K2 : TKeys;
+   Doc1, Doc2 : TDocument;
+   doc : IBSONDocument;
+   i : Integer;
+   LL : TStringList;
+begin
+   SetLength(JA, Self.FDocuments.Count + 1);
+
+   J1 := TJSONObject.Create;
+    LL := TStringList.Create;
+   try
+
+    //Adicionando as K1
+    for K1 in Self.FKeys do
+    begin
+      J1.AddPair(K1.Key, K1.Value);
+    end;
+
+    //Adicionando Objetos Embedados
+    for Doc1 in Self.FDocuments do
+    begin
+      try
+        J2 := TJSONObject.Create;
+        for K2 in Doc1.Values do
+        begin
+          LL.Add('Chave:' + K2.Key + ' - Valor:' + K2.Value);
+          J2.AddPair(K2.Key, K2.Value);
+        end;
+      finally
+        J1.AddPair(Doc1.Key, J2);
+        J2.Free;
+      end;
+    end;
+
+    //J2 := TJsonObject.Create;
+    //J2.AddPair('ipp', TJSONNumber.Create(1122368));
+
+    //J1.AddPair('Embedando', J2);
+
+
+    LL.Add(J1.ToString);
+
+
+
+
+     DOCBSON := JsonToBson(J1.ToString);
+    //JsonIntoBson(J1.ToString, doc, i);
+   finally
+     //J1.Free;
+     LL.SaveToFile('JSON.TXT');
+      LL.Free;
+   end;
+
+end;
+
+end.

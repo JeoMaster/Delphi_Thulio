@@ -1,0 +1,47 @@
+unit uConexaoMongo;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, mongoWire, bsonDoc;
+
+type
+  TConexaoMongo = class(TComponent)
+    private
+      FDatabase : String;
+      FHost : String;
+      FPorta : Integer;
+      FAtivar : Boolean;
+      procedure setAtivar(const Value: boolean);
+    public
+      FMongoWire:TMongoWire;
+      constructor Create(AOwner: TComponent); override;
+    published
+      property Database : String read FDatabase write FDatabase;
+      property Host : String read FHost write FHost;
+      property Porta : Integer read FPorta write FPorta;
+      property Ativar : Boolean read FAtivar write setAtivar;
+  end;
+
+procedure Register;
+
+implementation
+
+procedure Register;
+begin
+  RegisterComponents('Mongo Components', [TConexaoMongo]);
+end;
+
+constructor TConexaoMongo.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+end;
+
+procedure TConexaoMongo.setAtivar(const Value: boolean);
+begin
+  FMongoWire:=TMongoWire.Create(FDatabase);
+  FMongoWire.Open(FHost,FPorta);
+  FAtivar := Value;
+end;
+
+end.

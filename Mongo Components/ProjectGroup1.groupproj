@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{96E33007-6F03-48BD-A506-C4A00BC6BC88}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MongoFMX.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\Milersoft\Desktop\Nova pasta\Project1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\TMongoWire-master\demo\example1\mwx1.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MongoFMX">
+        <MSBuild Projects="MongoFMX.dproj"/>
+    </Target>
+    <Target Name="MongoFMX:Clean">
+        <MSBuild Projects="MongoFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MongoFMX:Make">
+        <MSBuild Projects="MongoFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Project1">
+        <MSBuild Projects="C:\Users\Milersoft\Desktop\Nova pasta\Project1.dproj"/>
+    </Target>
+    <Target Name="Project1:Clean">
+        <MSBuild Projects="C:\Users\Milersoft\Desktop\Nova pasta\Project1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project1:Make">
+        <MSBuild Projects="C:\Users\Milersoft\Desktop\Nova pasta\Project1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mwx1">
+        <MSBuild Projects="..\TMongoWire-master\demo\example1\mwx1.dproj"/>
+    </Target>
+    <Target Name="mwx1:Clean">
+        <MSBuild Projects="..\TMongoWire-master\demo\example1\mwx1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mwx1:Make">
+        <MSBuild Projects="..\TMongoWire-master\demo\example1\mwx1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MongoFMX;Project1;mwx1"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MongoFMX:Clean;Project1:Clean;mwx1:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MongoFMX:Make;Project1:Make;mwx1:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
