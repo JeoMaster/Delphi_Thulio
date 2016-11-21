@@ -139,8 +139,6 @@ procedure Register;
 
 implementation
 
-{$R 'MongoComponentes.res' 'MongoComponentes.rc'}
-
 uses
   System.JSON, Winapi.Windows, uMongoListBoxItem;
 

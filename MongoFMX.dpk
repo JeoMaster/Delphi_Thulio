@@ -1,7 +1,6 @@
 package MongoFMX;
 
 {$R *.res}
-{$R *.dres}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -39,16 +38,23 @@ requires
   fmx,
   dbrtl,
   dsnap,
-  RESTComponents;
+  RESTComponents,
+  FireDAC,
+  FireDACCommonDriver,
+  FireDACCommon,
+  FireDACMongoDBDriver;
 
 contains
-  uEditMongo in 'uEditMongo.pas',
-  uConexaoMongo in 'uConexaoMongo.pas',
-  uMongoQuery in 'uMongoQuery.pas',
-  uMongoDocument in 'uMongoDocument.pas',
-  uAction_MongoQuery in 'uAction_MongoQuery.pas',
-  uMongo_Tipificacoes in 'uMongo_Tipificacoes.pas',
-  uMongoListBox in 'uMongoListBox.pas',
-  uMongoListBoxItem in 'uMongoListBoxItem.pas';
+  uAction_MongoQuery in 'source\uAction_MongoQuery.pas',
+  uConexaoMongo in 'source\uConexaoMongo.pas',
+  uEditMongo in 'source\uEditMongo.pas',
+  uLMongoListBox in 'source\uLMongoListBox.pas',
+  uMongo_Tipificacoes in 'source\uMongo_Tipificacoes.pas',
+  uMongoDocument in 'source\uMongoDocument.pas',
+  uMongoListBox in 'source\uMongoListBox.pas',
+  uMongoListBoxItem in 'source\uMongoListBoxItem.pas',
+  uMongoQuery in 'source\uMongoQuery.pas',
+  uMongoRelatorio in 'source\uMongoRelatorio.pas',
+  uMongoDiversos in 'source\uMongoDiversos.pas';
 
 end.

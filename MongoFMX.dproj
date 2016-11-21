@@ -51,7 +51,7 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>xmlrtl;rtl;vclactnband;vclx;vcl;fmx;dbrtl;FireDACCommon;FireDACMongoDBDriver;dsnap;RESTComponents;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>xmlrtl;rtl;vclactnband;vclx;vcl;fmx;dbrtl;FireDACCommon;FireDACMongoDBDriver;dsnap;RESTComponents;FireDAC;FireDACCommonDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -66,6 +66,10 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_DcpOutput>C:\Projetos\Componentes\Mongo Components\dcu\</DCC_DcpOutput>
+        <DCC_BplOutput>C:\Projetos\Componentes\Mongo Components\package\</DCC_BplOutput>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_Description>Componente para MongoRAD</DCC_Description>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
@@ -89,21 +93,21 @@
         <DCCReference Include="dbrtl.dcp"/>
         <DCCReference Include="dsnap.dcp"/>
         <DCCReference Include="RESTComponents.dcp"/>
-        <DCCReference Include="uEditMongo.pas"/>
-        <DCCReference Include="uConexaoMongo.pas"/>
-        <DCCReference Include="uMongoQuery.pas"/>
-        <DCCReference Include="uMongoDocument.pas"/>
-        <DCCReference Include="uAction_MongoQuery.pas"/>
-        <DCCReference Include="uMongo_Tipificacoes.pas"/>
-        <DCCReference Include="uMongoListBox.pas"/>
-        <DCCReference Include="uMongoListBoxItem.pas"/>
-        <RcItem Include="img\TMongoConexao.bmp">
-            <ResourceType>BITMAP</ResourceType>
-            <ResourceId>TMongoConexao</ResourceId>
-        </RcItem>
-        <RcCompile Include="img\MongoComponentes.RC">
-            <Form>MongoComponentes.res</Form>
-        </RcCompile>
+        <DCCReference Include="FireDAC.dcp"/>
+        <DCCReference Include="FireDACCommonDriver.dcp"/>
+        <DCCReference Include="FireDACCommon.dcp"/>
+        <DCCReference Include="FireDACMongoDBDriver.dcp"/>
+        <DCCReference Include="source\uAction_MongoQuery.pas"/>
+        <DCCReference Include="source\uConexaoMongo.pas"/>
+        <DCCReference Include="source\uEditMongo.pas"/>
+        <DCCReference Include="source\uLMongoListBox.pas"/>
+        <DCCReference Include="source\uMongo_Tipificacoes.pas"/>
+        <DCCReference Include="source\uMongoDocument.pas"/>
+        <DCCReference Include="source\uMongoListBox.pas"/>
+        <DCCReference Include="source\uMongoListBoxItem.pas"/>
+        <DCCReference Include="source\uMongoQuery.pas"/>
+        <DCCReference Include="source\uMongoRelatorio.pas"/>
+        <DCCReference Include="source\uMongoDiversos.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -124,6 +128,10 @@
                 <Source>
                     <Source Name="MainSource">MongoFMX.dpk</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k240.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp240.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
@@ -146,13 +154,22 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="C:\Users\Public\Documents\Embarcadero\Studio\18.0\Bpl\MongoFMX.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="package\MongoFMX.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>MongoFMX.bpl</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
                     <Platform Name="OSX32">
                         <RemoteDir>Contents\Resources</RemoteDir>
@@ -463,16 +480,7 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
