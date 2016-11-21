@@ -37,12 +37,7 @@ requires
   xmlrtl,
   fmx,
   dbrtl,
-  dsnap,
-  RESTComponents,
-  FireDAC,
-  FireDACCommonDriver,
-  FireDACCommon,
-  FireDACMongoDBDriver;
+  dsnap;
 
 contains
   uAction_MongoQuery in 'source\uAction_MongoQuery.pas',

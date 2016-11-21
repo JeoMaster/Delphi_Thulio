@@ -92,11 +92,6 @@
         <DCCReference Include="fmx.dcp"/>
         <DCCReference Include="dbrtl.dcp"/>
         <DCCReference Include="dsnap.dcp"/>
-        <DCCReference Include="RESTComponents.dcp"/>
-        <DCCReference Include="FireDAC.dcp"/>
-        <DCCReference Include="FireDACCommonDriver.dcp"/>
-        <DCCReference Include="FireDACCommon.dcp"/>
-        <DCCReference Include="FireDACMongoDBDriver.dcp"/>
         <DCCReference Include="source\uAction_MongoQuery.pas"/>
         <DCCReference Include="source\uConexaoMongo.pas"/>
         <DCCReference Include="source\uEditMongo.pas"/>
