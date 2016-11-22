@@ -50,6 +50,7 @@ contains
   uMongoListBoxItem in 'source\uMongoListBoxItem.pas',
   uMongoQuery in 'source\uMongoQuery.pas',
   uMongoRelatorio in 'source\uMongoRelatorio.pas',
-  uMongoDiversos in 'source\uMongoDiversos.pas';
+  uMongoDiversos in 'source\uMongoDiversos.pas',
+  uComboBoxMongo in 'source\uComboBoxMongo.pas';
 
 end.

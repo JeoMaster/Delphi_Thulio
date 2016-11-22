@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Actions,
   FMX.ActnList, uAction_MongoQuery, FMX.StdCtrls, FMX.Controls.Presentation,
-  FMX.Edit, uEditMongo, FMX.Layouts, uMongoQuery, uConexaoMongo;
+  FMX.Edit, uEditMongo, FMX.Layouts, uMongoQuery, uConexaoMongo, uComboBoxMongo,
+  FMX.ListBox;
 
 type
   TForm2 = class(TForm)
@@ -33,6 +34,8 @@ type
     Label4: TLabel;
     MongoLimpar1: TMongoLimpar;
     Button5: TButton;
+    ComboBoxMongo1: TComboBoxMongo;
+    Label5: TLabel;
   private
     { Private declarations }
   public

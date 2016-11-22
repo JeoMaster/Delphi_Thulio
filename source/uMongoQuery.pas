@@ -140,7 +140,7 @@ procedure Register;
 implementation
 
 uses
-  System.JSON, Winapi.Windows, uMongoListBoxItem;
+  System.JSON, Winapi.Windows, uMongoListBoxItem, uComboBoxMongo;
 
 procedure Register;
 begin
@@ -189,6 +189,11 @@ begin
     if (Layout.Controls[i] is TEditMongo) then
     begin
       TEditMongo(Layout.Controls[i]).Text := '';
+    end;
+    if (Layout.Controls[i] is TComboBoxMongo) then
+    begin
+      TComboBoxMongo(Layout.Controls[i]).ItemIndex := -1;
+      TComboBoxMongo(Layout.Controls[i]).Text := '';
     end;
   end;
 end;
@@ -273,6 +278,7 @@ var
   MongoDoc : TMongoDocument;
   i : Integer;
   Edit : TEditMongo;
+  ComboBox : TComboBoxMongo;
 begin
   MongoDoc := TMongoDocument.Create;
   try
@@ -286,6 +292,12 @@ begin
         begin
           Edit := TEditMongo(Layout.Controls[i]);
           Edit.Text := VarToStr(d[Edit.MongoCampo]);
+        end;
+        if (Layout.Controls[i] is TComboBoxMongo) then
+        begin
+          ComboBox := TComboBoxMongo(Layout.Controls[i]);
+          ComboBox.Text := VarToStr(d[ComboBox.MongoCampo]);
+          ComboBox.ItemIndex := ComboBox.Items.IndexOf(ComboBox.Text);
         end;
       end;
     except
@@ -302,6 +314,7 @@ var
   d : IBSONDocument;
   i : Integer;
   Edit : TEditMongo;
+  ComboBox : TComboBoxMongo;
 begin
   Result := True;
   d:=BSON;
@@ -319,6 +332,11 @@ begin
           Edit := TEditMongo(Layout.Controls[i]);
           FDataSet.FieldByName(Edit.MongoCampo).AsVariant := d[Edit.MongoCampo];
         end;
+        if (Layout.Controls[i] is TComboBoxMongo) then
+        begin
+          ComboBox := TComboBoxMongo(Layout.Controls[i]);
+          FDataSet.FieldByName(ComboBox.MongoCampo).AsVariant := d[ComboBox.MongoCampo];
+        end;
       end;
       FDataSet.Post;
     end;
@@ -332,6 +350,7 @@ procedure TMongoQuery.criarDataSetLayout(Layout : TLayout);
 var
   i : Integer;
   Edit : TEditMongo;
+  ComboBox : TComboBoxMongo;
 begin
   FDataSet.Close;
   FDataSet.FieldDefs.Clear;
@@ -345,6 +364,16 @@ begin
         Numerico: FDataSet.FieldDefs.add(Edit.MongoCampo, ftInteger);
         Moeda : FDataSet.FieldDefs.add(Edit.MongoCampo, ftFloat);
         DataHora : FDataSet.FieldDefs.add(Edit.MongoCampo, ftString, 50);
+      end;
+    end;
+    if (Layout.Controls[i] is TComboBoxMongo) then
+    begin
+      ComboBox := TComboBoxMongo(Layout.Controls[i]);
+      case ComboBox.MongoTipoCampo of
+        Texto: FDataSet.FieldDefs.add(ComboBox.MongoCampo, ftString, 255);
+        Numerico: FDataSet.FieldDefs.add(ComboBox.MongoCampo, ftInteger);
+        Moeda : FDataSet.FieldDefs.add(ComboBox.MongoCampo, ftFloat);
+        DataHora : FDataSet.FieldDefs.add(ComboBox.MongoCampo, ftString, 50);
       end;
     end;
   end;
@@ -405,6 +434,28 @@ begin
           end;
       end;
     end;
+    if (Layout.Controls[i] is TComboBoxMongo) then
+    begin
+      case TComboBoxMongo(Layout.Controls[i]).MongoTipoCampo of
+        Texto :
+          begin
+            MongoDoc.addKey(TComboBoxMongo(Layout.Controls[i]).MongoCampo, TComboBoxMongo(Layout.Controls[i]).Text, Texto);
+          end;
+        Numerico :
+          begin
+            MongoDoc.addKey(TComboBoxMongo(Layout.Controls[i]).MongoCampo, TComboBoxMongo(Layout.Controls[i]).toNumerico, Numerico);
+          end;
+        Moeda :
+          begin
+            MongoDoc.addKey(TComboBoxMongo(Layout.Controls[i]).MongoCampo, TComboBoxMongo(Layout.Controls[i]).toMoeda, Moeda);
+          end;
+        DataHora :
+          begin
+            MongoDoc.addKey(TComboBoxMongo(Layout.Controls[i]).MongoCampo, TComboBoxMongo(Layout.Controls[i]).toDataHora, DataHora);
+          end;
+      end;
+    end;
+
   end;
 end;
 
