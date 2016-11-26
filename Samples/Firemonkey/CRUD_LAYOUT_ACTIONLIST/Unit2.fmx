@@ -2,7 +2,7 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 228
+  ClientHeight = 307
   ClientWidth = 502
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -11,7 +11,7 @@ object Form2: TForm2
   object Layout1: TLayout
     Align = Client
     Size.Width = 502.000000000000000000
-    Size.Height = 228.000000000000000000
+    Size.Height = 307.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
     object EditMongo1: TEditMongo
@@ -29,7 +29,7 @@ object Form2: TForm2
     end
     object ToolBar1: TToolBar
       Align = Bottom
-      Position.Y = 188.000000000000000000
+      Position.Y = 267.000000000000000000
       Size.Width = 502.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
@@ -164,6 +164,15 @@ object Form2: TForm2
       TextSettings.HorzAlign = Trailing
       Text = 'Telefone:'
     end
+    object Label5: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 138.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Trailing
+      Text = 'UF:'
+    end
     object ComboBoxMongo1: TComboBoxMongo
       Items.Strings = (
         'Rio de Janeiro'
@@ -176,19 +185,45 @@ object Form2: TForm2
       Size.Width = 169.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
+      TabOrder = 5
       MongoCampo = 'UF'
-      LookupMongoConexao = MongoConexao1
-      LookupCollection = 'UnidadeFederativa'
+      LookupQuery = MongoQuery2_UF
       LookupDisplayField = 'Nome'
     end
-    object Label5: TLabel
-      Position.X = 8.000000000000000000
-      Position.Y = 138.000000000000000000
-      Size.Width = 97.000000000000000000
-      Size.Height = 17.000000000000000000
+    object CheckBoxMongo1: TCheckBoxMongo
+      Position.X = 112.000000000000000000
+      Position.Y = 168.000000000000000000
+      TabOrder = 6
+      Text = 'Ativo'
+      MongoCampo = 'Ativo'
+    end
+    object GroupBoxMongo1: TGroupBoxMongo
+      Position.X = 16.000000000000000000
+      Position.Y = 192.000000000000000000
+      Size.Width = 265.000000000000000000
+      Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.HorzAlign = Trailing
-      Text = 'UF:'
+      Text = 'Sexo'
+      TabOrder = 7
+      MongoCampo = 'Sexo'
+      object RadioButton3: TRadioButton
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 89.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Masculino'
+      end
+      object RadioButton4: TRadioButton
+        Position.X = 160.000000000000000000
+        Position.Y = 24.000000000000000000
+        Size.Width = 89.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'Feminino'
+      end
     end
   end
   object MongoConexao1: TMongoConexao
@@ -196,48 +231,55 @@ object Form2: TForm2
     Host = 'localhost'
     Porta = 27017
     Ativar = True
-    Left = 352
+    Left = 360
     Top = 8
   end
-  object MongoQuery1: TMongoQuery
+  object MongoQuery1_Cliente: TMongoQuery
     MongoConexao = MongoConexao1
     Ativar = False
     Collection = 'CLIENTES'
-    Left = 440
-    Top = 8
+    Left = 360
+    Top = 64
   end
   object ActionList1: TActionList
-    Left = 440
-    Top = 80
+    Left = 448
+    Top = 8
     object MongoInsert1: TMongoInsert
       Category = 'Mongo Components'
       Text = 'Insert'
-      MongoQuery = MongoQuery1
+      MongoQuery = MongoQuery1_Cliente
       Layout = Layout1
     end
     object MongoUpdate1: TMongoUpdate
       Category = 'Mongo Components'
       Text = 'Update'
-      MongoQuery = MongoQuery1
+      MongoQuery = MongoQuery1_Cliente
       Layout = Layout1
     end
     object MongoDelete1: TMongoDelete
       Category = 'Mongo Components'
       Text = 'Delete'
-      MongoQuery = MongoQuery1
+      MongoQuery = MongoQuery1_Cliente
       Layout = Layout1
     end
     object MongoSelectEdit1: TMongoSelectEdit
       Category = 'Mongo Components'
       Text = 'Find'
-      MongoQuery = MongoQuery1
+      MongoQuery = MongoQuery1_Cliente
       Layout = Layout1
     end
     object MongoLimpar1: TMongoLimpar
       Category = 'Mongo Components'
       Text = 'Novo'
-      MongoQuery = MongoQuery1
+      MongoQuery = MongoQuery1_Cliente
       Layout = Layout1
     end
+  end
+  object MongoQuery2_UF: TMongoQuery
+    MongoConexao = MongoConexao1
+    Ativar = False
+    Collection = 'UnidadeFederativa'
+    Left = 360
+    Top = 120
   end
 end

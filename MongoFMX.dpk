@@ -51,6 +51,9 @@ contains
   uMongoQuery in 'source\uMongoQuery.pas',
   uMongoRelatorio in 'source\uMongoRelatorio.pas',
   uMongoDiversos in 'source\uMongoDiversos.pas',
-  uComboBoxMongo in 'source\uComboBoxMongo.pas';
+  uComboBoxMongo in 'source\uComboBoxMongo.pas',
+  uCheckBoxMongo in 'source\uCheckBoxMongo.pas',
+  uGroupBoxMongo in 'source\uGroupBoxMongo.pas';
 
 end.
+

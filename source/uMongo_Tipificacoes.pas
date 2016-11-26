@@ -6,7 +6,7 @@ uses
   System.SysUtils;
 
 type
-  TCampo = (Texto, Numerico, Moeda, DataHora);
+  TCampo = (Texto, Numerico, Moeda, DataHora, Booleano);
 
 type
   TTipificacao = class

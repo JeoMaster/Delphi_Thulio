@@ -4,8 +4,8 @@ interface
 
 uses
   FMX.ListBox, System.Classes, System.SysUtils, System.Variants,
-  uMongo_Tipificacoes, uConexaoMongo, bsonDoc, mongoWire, bsonUtils,
-  System.Generics.Collections;
+  uMongo_Tipificacoes, bsonDoc, mongoWire, bsonUtils,
+  System.Generics.Collections, uMongoQuery;
 
 type
   TComboBoxMongo = class(TComboBox)
@@ -13,13 +13,12 @@ type
     FMongoCampo: String;
     FMongoTipoCampo: TCampo;
     FText: string;
-    FLookupMongoConexao: TMongoConexao;
-    FLookupCollection : String;
-    //FLookupKeyField: string;
     FLookupDisplayField: string;
-    procedure Loaded; override;
+    FLookupQuery: TMongoQuery;
     procedure SetLookupDisplayField(const Value: string);
     procedure SetText(const Value: string);
+  protected
+    procedure Loaded; override;
   public
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
@@ -31,9 +30,7 @@ type
   published
     property MongoTipoCampo : TCampo  read FMongoTipoCampo write FMongoTipoCampo default TCampo.Texto;
     property MongoCampo : String read FMongoCampo write FMongoCampo;
-    property LookupMongoConexao : TMongoConexao read FLookupMongoConexao write FLookupMongoConexao;
-    property LookupCollection : String read FLookupCollection write FLookupCollection;
-    //property LookupKeyField: string read FLookupKeyField write FLookupKeyField;
+    property LookupQuery: TMongoQuery read FLookupQuery write FLookupQuery;
     property LookupDisplayField: string read FLookupDisplayField write SetLookupDisplayField;
     property Text: string read FText write SetText;
   end;
@@ -53,7 +50,8 @@ destructor TComboBoxMongo.Destroy;
 var i: integer;
 begin
      for i := 0 to Self.Items.Count-1 do
-         DisposeStr( PAnsiString(PString(Self.Items.Objects[i])) );
+         Self.Items.Objects[i].Free;
+         //DisposeStr( PAnsiString(PString(Self.Items.Objects[i])) );
      inherited;
 end;
 
@@ -79,15 +77,14 @@ end;
 procedure TComboBoxMongo.PreencheItens;
 var d : IBSONDocument;
     q : TMongoWireQuery;
-    vlist: TList<string>;
 begin
-     if Self.LookupCollection = '' then
+     if Self.FLookupQuery.Collection = '' then
         exit;
      Self.Items.Clear;
      d := BSON;
-     q := TMongoWireQuery.Create(Self.FLookupMongoConexao.FMongoWire);
+     q := TMongoWireQuery.Create(Self.FLookupQuery.MongoConexao.FMongoWire);
      try
-        q.Query(Self.LookupCollection, d);
+        q.Query(Self.FLookupQuery.Collection, d);
         while q.Next(d) do
         begin
              //Self.Items.AddObject(VarToStr(d[Self.LookupDisplayField]),

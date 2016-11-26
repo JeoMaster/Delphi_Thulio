@@ -7,12 +7,12 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Actions,
   FMX.ActnList, uAction_MongoQuery, FMX.StdCtrls, FMX.Controls.Presentation,
   FMX.Edit, uEditMongo, FMX.Layouts, uMongoQuery, uConexaoMongo, uComboBoxMongo,
-  FMX.ListBox;
+  FMX.ListBox, uCheckBoxMongo, uGroupBoxMongo;
 
 type
   TForm2 = class(TForm)
     MongoConexao1: TMongoConexao;
-    MongoQuery1: TMongoQuery;
+    MongoQuery1_Cliente: TMongoQuery;
     Layout1: TLayout;
     EditMongo1: TEditMongo;
     ActionList1: TActionList;
@@ -34,8 +34,13 @@ type
     Label4: TLabel;
     MongoLimpar1: TMongoLimpar;
     Button5: TButton;
-    ComboBoxMongo1: TComboBoxMongo;
     Label5: TLabel;
+    MongoQuery2_UF: TMongoQuery;
+    ComboBoxMongo1: TComboBoxMongo;
+    CheckBoxMongo1: TCheckBoxMongo;
+    GroupBoxMongo1: TGroupBoxMongo;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
   private
     { Private declarations }
   public

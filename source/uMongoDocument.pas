@@ -113,6 +113,10 @@ begin
           begin
             JA[0].AddPair(K1.Key, TJSONString.Create(K1.Value));
           end;
+        Booleano:
+          begin
+            JA[0].AddPair(K1.Key, TJSONBool.Create(K1.Value));
+          end;
       end;
     end;
 
@@ -139,6 +143,10 @@ begin
             DataHora:
               begin
                 JA[I].AddPair(K2.Key, TJSONString.Create(K2.Value));
+              end;
+            Booleano:
+              begin
+                JA[I].AddPair(K2.Key, TJSONBool.Create(K2.Value));
               end;
           end;
         end;
@@ -175,6 +183,10 @@ begin
       DataHora:
         begin
           J.AddPair(FCampoChave.Key, TJSONString.Create(FCampoChave.Value));
+        end;
+      Booleano:
+        begin
+          J.AddPair(FCampoChave.Key, TJSONBool.Create(FCampoChave.Value));
         end;
     end;
     dChave := JsonToBson(J.ToJSON);

@@ -15,6 +15,9 @@
     <Transaction>2016/11/21 21:41:12.000.094,C:\Componentes\TMongoComponents\source\uComboBoxMongo.pas=C:\Componentes\TMongoComponents\Samples\Firemonkey\CRUD_LAYOUT_ACTIONLIST\Unit1.pas</Transaction>
     <Transaction>2016/11/21 21:48:28.000.845,C:\Componentes\TMongoComponents\source\uLookupMongo.pas=C:\Componentes\TMongoComponents\source\uComboBoxMongo.pas</Transaction>
     <Transaction>2016/11/21 22:06:37.000.414,C:\Componentes\TMongoComponents\source\uComboBoxMongo.pas=C:\Componentes\TMongoComponents\source\uLookupMongo.pas</Transaction>
+    <Transaction>2016/11/25 20:53:41.000.392,=C:\Componentes\TMongoComponents\Samples\Firemonkey\CRUD_LAYOUT_ACTIONLIST\Unit1.pas</Transaction>
+    <Transaction>2016/11/25 20:57:29.000.481,C:\Componentes\TMongoComponents\source\uCheckBoxMongo.pas=C:\Componentes\TMongoComponents\Samples\Firemonkey\CRUD_LAYOUT_ACTIONLIST\Unit1.pas</Transaction>
+    <Transaction>2016/11/25 21:06:33.000.780,C:\Componentes\TMongoComponents\source\uCheckBoxMongo.pas=</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>
