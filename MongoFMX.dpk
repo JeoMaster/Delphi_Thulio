@@ -37,7 +37,8 @@ requires
   xmlrtl,
   fmx,
   dbrtl,
-  dsnap;
+  dsnap,
+  soaprtl;
 
 contains
   uAction_MongoQuery in 'source\uAction_MongoQuery.pas',

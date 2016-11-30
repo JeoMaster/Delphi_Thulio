@@ -1,13 +1,92 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N-,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN SYMBOL_EXPERIMENTAL ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN UNIT_EXPERIMENTAL ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+{$WARN OPTION_TRUNCATED ON}
+{$WARN WIDECHAR_REDUCED ON}
+{$WARN DUPLICATES_IGNORED ON}
+{$WARN UNIT_INIT_SEQ ON}
+{$WARN LOCAL_PINVOKE ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN TYPEINFO_IMPLICITLY_ADDED ON}
+{$WARN RLINK_WARNING ON}
+{$WARN IMPLICIT_STRING_CAST ON}
+{$WARN IMPLICIT_STRING_CAST_LOSS ON}
+{$WARN EXPLICIT_STRING_CAST OFF}
+{$WARN EXPLICIT_STRING_CAST_LOSS OFF}
+{$WARN CVT_WCHAR_TO_ACHAR ON}
+{$WARN CVT_NARROWING_STRING_LOST ON}
+{$WARN CVT_ACHAR_TO_WCHAR ON}
+{$WARN CVT_WIDENING_STRING_LOST ON}
+{$WARN NON_PORTABLE_TYPECAST ON}
+{$WARN XML_WHITESPACE_NOT_ALLOWED ON}
+{$WARN XML_UNKNOWN_ENTITY ON}
+{$WARN XML_INVALID_NAME_START ON}
+{$WARN XML_INVALID_NAME ON}
+{$WARN XML_EXPECTED_CHARACTER ON}
+{$WARN XML_CREF_NO_RESOLVE ON}
+{$WARN XML_NO_PARM ON}
+{$WARN XML_NO_MATCHING_PARM ON}
+{$WARN IMMUTABLE_STRINGS OFF}
 unit uMongoQuery;
 
 interface
 
 uses
-  System.SysUtils, System.Classes, FMX.Forms, FMX.Layouts, FMX.ListBox,
-  System.Generics.Collections, System.Variants, DataSnap.DBClient, Data.DB,
-  REST.JSON, mongoWire, bsonDoc, bsonUtils, uEditMongo, uConexaoMongo,
-  uMongoDocument, uMongo_Tipificacoes, uMongoListBox, uCheckBoxMongo,
-  uGroupBoxMongo;
+  System.SysUtils, System.Classes, mongoWire, bsonDoc, bsonUtils, FMX.Forms,
+  uEditMongo, uMongoDocument, System.Generics.Collections, FMX.Layouts, uConexaoMongo,
+  FMX.ListBox, uMongo_Tipificacoes, System.Variants, DataSnap.DBClient, Data.DB,
+  Generics.Collections, uMongoListBox, REST.JSON;
 
 type
   TMongoQuery = class(TComponent)
@@ -61,7 +140,7 @@ procedure Register;
 implementation
 
 uses
-  System.JSON, Winapi.Windows, uMongoListBoxItem, uComboBoxMongo;
+  System.JSON, Winapi.Windows, uMongoListBoxItem, uComboBoxMongo, uImageMongo;
 
 procedure Register;
 begin
@@ -110,6 +189,10 @@ begin
     if (Layout.Controls[i] is TEditMongo) then
     begin
       TEditMongo(Layout.Controls[i]).Text := '';
+    end;
+     if (Layout.Controls[i] is TImageMongo) then
+    begin
+      TImageMongo(Layout.Controls[i]).Bitmap := nil;
     end;
     if (Layout.Controls[i] is TComboBoxMongo) then
     begin
@@ -200,8 +283,7 @@ var
   i : Integer;
   Edit : TEditMongo;
   ComboBox : TComboBoxMongo;
-  CheckBox : TCheckBoxMongo;
-  GroupBox : TGroupBoxMongo;
+  Image : TImageMongo;
 begin
   MongoDoc := TMongoDocument.Create;
   try
@@ -211,29 +293,27 @@ begin
       d:=FMongoConexao.FMongoWire.Get(FCollection,dChave);
       for i:= 0 to Pred(Layout.ControlsCount) do
       begin
+
+        //Edit
         if (Layout.Controls[i] is TEditMongo) then
         begin
           Edit := TEditMongo(Layout.Controls[i]);
           Edit.Text := VarToStr(d[Edit.MongoCampo]);
         end;
+
+        //ComboBox
         if (Layout.Controls[i] is TComboBoxMongo) then
         begin
           ComboBox := TComboBoxMongo(Layout.Controls[i]);
           ComboBox.Text := VarToStr(d[ComboBox.MongoCampo]);
           ComboBox.ItemIndex := ComboBox.Items.IndexOf(ComboBox.Text);
         end;
-        if (Layout.Controls[i] is TCheckBoxMongo) then
+
+        //Imagem
+        if (Layout.Controls[i] is TImageMongo) then
         begin
-          CheckBox := TCheckBoxMongo(Layout.Controls[i]);
-          if VarIsNull( d[CheckBox.MongoCampo] ) then
-             CheckBox.IsChecked := false
-          else
-             CheckBox.IsChecked := d[CheckBox.MongoCampo];
-        end;
-        if (Layout.Controls[i] is TGroupBoxMongo) then
-        begin
-          GroupBox := TGroupBoxMongo(Layout.Controls[i]);
-          GroupBox.ValueText := VarToStr(d[GroupBox.MongoCampo]);
+          Image := TImageMongo(Layout.Controls[i]);
+          Image.setDataImage(VarToStr(d[Image.MongoCampo]));
         end;
       end;
     except
@@ -251,8 +331,6 @@ var
   i : Integer;
   Edit : TEditMongo;
   ComboBox : TComboBoxMongo;
-  CheckBox : TCheckBoxMongo;
-  GroupBox : TGroupBoxMongo;
 begin
   Result := True;
   d:=BSON;
@@ -275,17 +353,6 @@ begin
           ComboBox := TComboBoxMongo(Layout.Controls[i]);
           FDataSet.FieldByName(ComboBox.MongoCampo).AsVariant := d[ComboBox.MongoCampo];
         end;
-        if (Layout.Controls[i] is TCheckBoxMongo) then
-        begin
-          CheckBox := TCheckBoxMongo(Layout.Controls[i]);
-          FDataSet.FieldByName(CheckBox.MongoCampo).AsBoolean := d[CheckBox.MongoCampo];
-        end;
-        if (Layout.Controls[i] is TGroupBoxMongo) then
-        begin
-          GroupBox := TGroupBoxMongo(Layout.Controls[i]);
-          FDataSet.FieldByName(GroupBox.MongoCampo).AsVariant := d[GroupBox.MongoCampo];
-        end;
-
       end;
       FDataSet.Post;
     end;
@@ -300,7 +367,6 @@ var
   i : Integer;
   Edit : TEditMongo;
   ComboBox : TComboBoxMongo;
-  CheckBox : TCheckBoxMongo;
 begin
   FDataSet.Close;
   FDataSet.FieldDefs.Clear;
@@ -326,12 +392,6 @@ begin
         DataHora : FDataSet.FieldDefs.add(ComboBox.MongoCampo, ftString, 50);
       end;
     end;
-    if (Layout.Controls[i] is TCheckBoxMongo) then
-    begin
-      CheckBox := TCheckBoxMongo(Layout.Controls[i]);
-      FDataSet.FieldDefs.add(CheckBox.MongoCampo, ftBoolean);
-    end;
-
   end;
   FDataSet.CreateDataSet;
 end;
@@ -355,6 +415,8 @@ var
 begin
   for i:= 0 to Pred(Layout.ControlsCount) do
   begin
+
+    //Edit Mongo
     if (Layout.Controls[i] is TEditMongo) then
     begin
       if (TEditMongo(Layout.Controls[i]).AutoInc) then
@@ -390,6 +452,8 @@ begin
           end;
       end;
     end;
+
+    //Mongo ComboBox
     if (Layout.Controls[i] is TComboBoxMongo) then
     begin
       case TComboBoxMongo(Layout.Controls[i]).MongoTipoCampo of
@@ -411,14 +475,13 @@ begin
           end;
       end;
     end;
-    if (Layout.Controls[i] is TCheckBoxMongo) then
+
+    //Mongo Image
+    if (Layout.Controls[i] is TImageMongo) then
     begin
-         MongoDoc.addKey(TCheckBoxMongo(Layout.Controls[i]).MongoCampo, TCheckBoxMongo(Layout.Controls[i]).IsChecked, Booleano);
+      MongoDoc.addKey(TImageMongo(Layout.Controls[i]).MongoCampo, TImageMongo(Layout.Controls[i]).getDataImage, Texto);
     end;
-    if (Layout.Controls[i] is TGroupBoxMongo) then
-    begin
-         MongoDoc.addKey(TGroupBoxMongo(Layout.Controls[i]).MongoCampo, TGroupBoxMongo(Layout.Controls[i]).ValueText, Texto);
-    end;
+
   end;
 end;
 

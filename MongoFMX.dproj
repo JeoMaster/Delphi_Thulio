@@ -51,7 +51,7 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>xmlrtl;rtl;vclactnband;vclx;vcl;fmx;dbrtl;FireDACCommon;FireDACMongoDBDriver;dsnap;RESTComponents;FireDAC;FireDACCommonDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>xmlrtl;rtl;vclactnband;vclx;vcl;fmx;dbrtl;FireDACCommon;FireDACMongoDBDriver;dsnap;RESTComponents;FireDAC;FireDACCommonDriver;soaprtl;$(DCC_UsePackage)</DCC_UsePackage>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -92,6 +92,7 @@
         <DCCReference Include="fmx.dcp"/>
         <DCCReference Include="dbrtl.dcp"/>
         <DCCReference Include="dsnap.dcp"/>
+        <DCCReference Include="soaprtl.dcp"/>
         <DCCReference Include="source\uAction_MongoQuery.pas"/>
         <DCCReference Include="source\uConexaoMongo.pas"/>
         <DCCReference Include="source\uEditMongo.pas"/>
