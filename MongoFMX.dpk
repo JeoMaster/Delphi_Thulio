@@ -54,7 +54,8 @@ contains
   uMongoDiversos in 'source\uMongoDiversos.pas',
   uComboBoxMongo in 'source\uComboBoxMongo.pas',
   uCheckBoxMongo in 'source\uCheckBoxMongo.pas',
-  uGroupBoxMongo in 'source\uGroupBoxMongo.pas';
+  uGroupBoxMongo in 'source\uGroupBoxMongo.pas',
+  UCtrlMongo in 'source\UCtrlMongo.pas';
 
 end.
 

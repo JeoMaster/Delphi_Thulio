@@ -140,7 +140,8 @@ procedure Register;
 implementation
 
 uses
-  System.JSON, Winapi.Windows, uMongoListBoxItem, uComboBoxMongo, uImageMongo;
+  System.JSON, Winapi.Windows, uMongoListBoxItem, uComboBoxMongo, uImageMongo,
+  UCtrlMongo;
 
 procedure Register;
 begin

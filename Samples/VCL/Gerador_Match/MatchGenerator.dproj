@@ -1,14 +1,14 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{52C356E7-234F-482A-9BEC-48EAC017529E}</ProjectGuid>
-        <MainSource>MongoFMX.dpk</MainSource>
+        <ProjectGuid>{A352973D-E6C1-4760-AAC6-8D4E7625FCB7}</ProjectGuid>
         <ProjectVersion>18.2</ProjectVersion>
-        <FrameworkType>FMX</FrameworkType>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>MatchGenerator.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
-        <AppType>Package</AppType>
+        <AppType>Application</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -34,14 +34,16 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>MongoFMX</SanitizedProjectName>
-        <AppFileExt>bpl</AppFileExt>
-        <GenPackage>true</GenPackage>
-        <DCC_UnitSearchPath>C:\Projetos\Salao;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-        <GenDll>true</GenDll>
-        <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
-        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <SanitizedProjectName>MatchGenerator</SanitizedProjectName>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
@@ -51,11 +53,14 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>xmlrtl;rtl;vclactnband;vclx;vcl;fmx;dbrtl;FireDACCommon;FireDACMongoDBDriver;dsnap;RESTComponents;FireDAC;FireDACCommonDriver;soaprtl;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
+        <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DataSnapServerMidas;DBXDb2Driver;DBXInterBaseDriver;dxCoreRS23;vclactnband;frxe23;vclFireDAC;dxADOServerModeRS23;dxPSLnksRS23;dxPSdxLCLnkRS23;emsclientfiredac;DataSnapFireDAC;svnui;tethering;cxDataRS23;FireDACADSDriver;dxmdsRS23;dxTabbedMDIRS23;dxdbtrRS23;dxPSDBTeeChartRS23;dxPSCoreRS23;dxPSdxOCLnkRS23;DBXMSSQLDriver;dxDBXServerModeRS23;dxHttpIndyRequestRS23;dxPScxGridLnkRS23;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;cxSchedulerRS23;vcltouch;vcldb;bindcompfmx;svn;Intraweb;DBXOracleDriver;dxWizardControlRS23;dxPScxCommonRS23;inetdb;dxBarRS23;cxSchedulerRibbonStyleEventEditorRS23;FmxTeeUI;dxBarExtItemsRS23;dxPSTeeChartRS23;FireDACIBDriver;fmx;fmxdae;cxLibraryRS23;dxServerModeRS23;vclib;cxPivotGridChartRS23;dxPsPrVwAdvRS23;cxPageControlRS23;dxPSdxDBOCLnkRS23;dxGDIPlusRS23;cxSchedulerGridRS23;FireDACDBXDriver;dbexpress;IndyCore;Speech;vclx;dsnap;DataSnapCommon;emsclient;FireDACCommon;dxdborRS23;RESTBackendComponents;DataSnapConnectors;dxLayoutControlRS23;cxVerticalGridRS23;dxPSPrVwRibbonRS23;VCLRESTComponents;soapserver;frxTee23;dxTileControlRS23;cxGridRS23;vclie;bindengine;DBXMySQLDriver;FireDACOracleDriver;CloudService;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonDriver;DataSnapClient;dxPScxPCProdRS23;inet;bindcompdbx;IndyIPCommon;dxDockingRS23;vcl;DBXSybaseASEDriver;IndyIPServer;dxPScxExtCommonRS23;IndySystem;FireDACDb2Driver;dxThemeRS23;dsnapcon;cxTreeListdxBarPopupMenuRS23;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;dxtrmdRS23;TeeDB;FireDAC;cxSchedulerTreeBrowserRS23;dxPSdxFCLnkRS23;dxFireDACServerModeRS23;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;cxEditorsRS23;DBXOdbcDriver;FireDACTDataDriver;FMXTee;dxBarDBNavRS23;dxFlowChartRS23;soaprtl;DbxCommonDriver;dxSpreadSheetRS23;dxGaugeControlRS23;ibxpress;Tee;cxPivotGridOLAPRS23;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;ibxbindings;rtl;FireDACDSDriver;DbxClientDriver;dxPSdxSpreadSheetLnkRS23;DBXSybaseASADriver;dxNavBarRS23;CustomIPTransport;vcldsnap;Mongo;SampleListViewMultiDetailAppearancePackage;dxRichEditControlRS23;bindcomp;appanalytics;cxPivotGridRS23;DBXInformixDriver;dxPSdxGaugeControlLnkRS23;dxPScxVGridLnkRS23;IndyIPClient;dxRibbonRS23;bindcompvcl;frxDB23;dxPScxTLLnkRS23;dxPScxPivotGridLnkRS23;dxorgcRS23;TeeUI;dxMapControlRS23;dxPSdxDBTVLnkRS23;vclribbon;dbxcds;VclSmp;dxPScxSchedulerLnkRS23;adortl;FireDACODBCDriver;cxTreeListRS23;DataSnapIndy10ServerTransport;dxRibbonCustomizationFormRS23;dxPSRichEditControlLnkRS23;dxBarExtDBItemsRS23;dxComnRS23;dsnapxml;DataSnapProviderClient;dbrtl;inetdbxpress;FireDACMongoDBDriver;IndyProtocols;frx23;cxExportRS23;dxSpellCheckerRS23;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(ModuleName);FileDescription=$(ModuleName);ProductName=$(ModuleName)</VerInfo_Keys>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -66,11 +71,8 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_DcpOutput>C:\Projetos\Componentes\Mongo Components\dcu\</DCC_DcpOutput>
-        <DCC_BplOutput>C:\Projetos\Componentes\Mongo Components\package\</DCC_BplOutput>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <DCC_Description>Componente para MongoRAD</DCC_Description>
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -79,35 +81,18 @@
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppEnableHighDPI>true</AppEnableHighDPI>
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+    </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="rtl.dcp"/>
-        <DCCReference Include="designide.dcp"/>
-        <DCCReference Include="vcl.dcp"/>
-        <DCCReference Include="vclactnband.dcp"/>
-        <DCCReference Include="vclx.dcp"/>
-        <DCCReference Include="xmlrtl.dcp"/>
-        <DCCReference Include="fmx.dcp"/>
-        <DCCReference Include="dbrtl.dcp"/>
-        <DCCReference Include="dsnap.dcp"/>
-        <DCCReference Include="soaprtl.dcp"/>
-        <DCCReference Include="source\uAction_MongoQuery.pas"/>
-        <DCCReference Include="source\uConexaoMongo.pas"/>
-        <DCCReference Include="source\uEditMongo.pas"/>
-        <DCCReference Include="source\uLMongoListBox.pas"/>
-        <DCCReference Include="source\uMongo_Tipificacoes.pas"/>
-        <DCCReference Include="source\uMongoDocument.pas"/>
-        <DCCReference Include="source\uMongoListBox.pas"/>
-        <DCCReference Include="source\uMongoListBoxItem.pas"/>
-        <DCCReference Include="source\uMongoQuery.pas"/>
-        <DCCReference Include="source\uMongoRelatorio.pas"/>
-        <DCCReference Include="source\uMongoDiversos.pas"/>
-        <DCCReference Include="source\uComboBoxMongo.pas"/>
-        <DCCReference Include="source\uCheckBoxMongo.pas"/>
-        <DCCReference Include="source\uGroupBoxMongo.pas"/>
-        <DCCReference Include="source\UCtrlMongo.pas"/>
+        <DCCReference Include="UTeste.pas">
+            <Form>FormMatch</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -122,41 +107,17 @@
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Delphi.Personality.12</Borland.Personality>
-        <Borland.ProjectType>Package</Borland.ProjectType>
+        <Borland.ProjectType>Application</Borland.ProjectType>
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">MongoFMX.dpk</Source>
+                    <Source Name="MainSource">MatchGenerator.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k240.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp240.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-                </Excluded_Packages>
             </Delphi.Personality>
-            <Deployment Version="3">
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libPCRE.dylib" Class="DependencyModule">
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="C:\Projetos\Componentes\Mongo Components\package\MongoFMX.bpl" Configuration="Debug" Class="ProjectOutput">
+            <Deployment Version="2">
+                <DeployFile LocalName="Win32\Debug\Match.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>MongoFMX.bpl</RemoteName>
+                        <RemoteName>Match.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -165,7 +126,20 @@
                         <Operation>0</Operation>
                         <Extensions>.dll;.bpl</Extensions>
                     </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
@@ -187,7 +161,11 @@
                         <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -215,19 +193,17 @@
                     </Platform>
                 </DeployClass>
                 <DeployClass Required="true" Name="ProjectOutput">
-                    <Platform Name="iOSDevice64">
-                        <Operation>1</Operation>
-                    </Platform>
-                    <Platform Name="iOSDevice32">
-                        <Operation>1</Operation>
-                    </Platform>
                     <Platform Name="Win32">
                         <Operation>0</Operation>
                     </Platform>
-                    <Platform Name="Linux64">
+                    <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Android">
@@ -243,6 +219,7 @@
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.framework</Extensions>
                     </Platform>
@@ -279,6 +256,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="iPhone_Launch320">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -290,7 +273,17 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="ProjectiOSInfoPList">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="AndroidLibnativeArmeabiFile">
                     <Platform Name="Android">
                         <RemoteDir>library\lib\armeabi</RemoteDir>
@@ -305,6 +298,7 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -348,7 +342,16 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="ProjectiOSEntitlements">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>../</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>../</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="Android_LauncherIcon72">
                     <Platform Name="Android">
                         <RemoteDir>res\drawable-hdpi</RemoteDir>
@@ -361,8 +364,18 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectOSXInfoPList"/>
-                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="ProjectOSXInfoPList">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements">
+                    <Platform Name="OSX32">
+                        <RemoteDir>../</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="iPad_Launch2048">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -422,6 +435,7 @@
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources\StartUp\</RemoteDir>
                         <Operation>0</Operation>
                     </Platform>
                     <Platform Name="iOSDevice32">
@@ -450,6 +464,7 @@
                         <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
@@ -480,13 +495,19 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
             </Deployment>
