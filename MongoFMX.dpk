@@ -24,8 +24,9 @@ package MongoFMX;
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
+{$DEFINE FMX}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Componente para MongoRAD'}
+{$DESCRIPTION 'Componente FMX para MongoRAD'}
 {$IMPLICITBUILD ON}
 
 requires
@@ -38,24 +39,19 @@ requires
   fmx,
   dbrtl,
   dsnap,
-  soaprtl;
+  soaprtl,
+  MongoCore;
 
 contains
-  uAction_MongoQuery in 'source\uAction_MongoQuery.pas',
-  uConexaoMongo in 'source\uConexaoMongo.pas',
-  uEditMongo in 'source\uEditMongo.pas',
-  uLMongoListBox in 'source\uLMongoListBox.pas',
-  uMongo_Tipificacoes in 'source\uMongo_Tipificacoes.pas',
-  uMongoDocument in 'source\uMongoDocument.pas',
-  uMongoListBox in 'source\uMongoListBox.pas',
-  uMongoListBoxItem in 'source\uMongoListBoxItem.pas',
-  uMongoQuery in 'source\uMongoQuery.pas',
-  uMongoRelatorio in 'source\uMongoRelatorio.pas',
-  uMongoDiversos in 'source\uMongoDiversos.pas',
-  uComboBoxMongo in 'source\uComboBoxMongo.pas',
-  uCheckBoxMongo in 'source\uCheckBoxMongo.pas',
-  uGroupBoxMongo in 'source\uGroupBoxMongo.pas',
-  UCtrlMongo in 'source\UCtrlMongo.pas';
+  mongo.FMX.ActionQuery in 'source\mongo.FMX.ActionQuery.pas',
+  mongo.FMX.Edit in 'source\mongo.FMX.Edit.pas',
+  mongo.FMX.ListBox in 'source\mongo.FMX.ListBox.pas',
+  mongo.FMX.ListBoxItem in 'source\mongo.FMX.ListBoxItem.pas',
+  mongo.FMX.ComboBox in 'source\mongo.FMX.ComboBox.pas',
+  mongo.FMX.CheckBox in 'source\mongo.FMX.CheckBox.pas',
+  mongo.FMX.GroupBox in 'source\mongo.FMX.GroupBox.pas',
+  mongo.FMX.Image in 'source\mongo.FMX.Image.pas',
+  mongo.FMX.Reg in 'source\mongo.FMX.Reg.pas';
 
 end.
 

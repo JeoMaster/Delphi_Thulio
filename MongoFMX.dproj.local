@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2016/11/21 22:51:27.000.435,=C:\Componentes\TMongoComponents\source\uComboBoxMongo.pas</Transaction>
-    <Transaction>2016/11/25 21:04:30.000.988,=C:\Componentes\TMongoComponents\source\uCheckBoxMongo.pas</Transaction>
-    <Transaction>2016/11/25 22:24:55.000.708,=C:\Componentes\TMongoComponents\Unit1.pas</Transaction>
-    <Transaction>2016/11/25 22:25:50.000.836,C:\Componentes\TMongoComponents\source\uGroupBoxMongo.pas=C:\Componentes\TMongoComponents\Unit1.pas</Transaction>
-    <Transaction>2016/11/29 22:02:26.000.175,=soaprtl.dcp</Transaction>
-    <Transaction>2016/11/30 19:37:41.958,=C:\Projetos\Componentes\TMongoComponents\source\UCtrlMongo.pas</Transaction>
+    <Transaction>2016/12/03 23:40:38.000.831,C:\DMongo\MongoCore.dproj=C:\DMongo\MongoFMX.dproj</Transaction>
+    <Transaction>2016/12/03 23:41:04.000.145,C:\DMongo\MongoFMX.dproj=C:\DMongo\MongoCore.dproj</Transaction>
+    <Transaction>2016/12/04 01:59:07.000.106,C:\Git\Mongo\source\uEditMongo.pas=C:\Git\Mongo\source\mongo.VCL.MongoEdit.pas</Transaction>
   </Transactions>
 </BorlandProject>

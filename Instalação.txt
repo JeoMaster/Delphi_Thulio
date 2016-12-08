@@ -1,5 +1,10 @@
 * 2016/11/21 *
 1 - Incluir o diretorio source do componente nos librarys do Delphi
-2 - Abrir o Arquivo MongoFMX.dpk
-3 - Compilar
-4 - Instalar
+2 - Abrir o Arquivo MongoProjectGroup.groupproj
+3 - Compilar All
+4 - Instalar em Ordem
+  1 - MongoCore.dpk
+  2 - MongoFMX.dpk
+  3 - MongoVCL.dpk
+
+

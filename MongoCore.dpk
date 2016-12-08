@@ -1,0 +1,50 @@
+package MongoCore;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$DEFINE VCL}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Componente para MongoRAD'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  designide,
+  fmx,
+  dsnap;
+
+contains
+  mongo.Conexao in 'source\mongo.Conexao.pas',
+  mongo.Query in 'source\mongo.Query.pas',
+  mongo.Diversos in 'source\mongo.Diversos.pas',
+  mongo.Ctrl in 'source\mongo.Ctrl.pas',
+  mongo.Relatorio in 'source\mongo.Relatorio.pas',
+  mongo.Interf in 'source\mongo.Interf.pas',
+  mongo.Types in 'source\mongo.Types.pas',
+  mongo.Tipificacoes in 'source\mongo.Tipificacoes.pas',
+  mongo.Document in 'source\mongo.Document.pas',
+  mongo.Reg in 'source\mongo.Reg.pas';
+
+end.

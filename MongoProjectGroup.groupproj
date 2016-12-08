@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{74BA3904-4DFF-44B1-AEEC-52EEE9CC8CCB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MongoCore.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MongoVCL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MongoFMX.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MongoVCLAniversary.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MongoCore">
+        <MSBuild Projects="MongoCore.dproj"/>
+    </Target>
+    <Target Name="MongoCore:Clean">
+        <MSBuild Projects="MongoCore.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MongoCore:Make">
+        <MSBuild Projects="MongoCore.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MongoVCL">
+        <MSBuild Projects="MongoVCL.dproj"/>
+    </Target>
+    <Target Name="MongoVCL:Clean">
+        <MSBuild Projects="MongoVCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MongoVCL:Make">
+        <MSBuild Projects="MongoVCL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MongoFMX">
+        <MSBuild Projects="MongoFMX.dproj"/>
+    </Target>
+    <Target Name="MongoFMX:Clean">
+        <MSBuild Projects="MongoFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MongoFMX:Make">
+        <MSBuild Projects="MongoFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MongoVCLAniversary">
+        <MSBuild Projects="MongoVCLAniversary.dproj"/>
+    </Target>
+    <Target Name="MongoVCLAniversary:Clean">
+        <MSBuild Projects="MongoVCLAniversary.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MongoVCLAniversary:Make">
+        <MSBuild Projects="MongoVCLAniversary.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MongoCore;MongoVCL;MongoFMX;MongoVCLAniversary"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MongoCore:Clean;MongoVCL:Clean;MongoFMX:Clean;MongoVCLAniversary:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MongoCore:Make;MongoVCL:Make;MongoFMX:Make;MongoVCLAniversary:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

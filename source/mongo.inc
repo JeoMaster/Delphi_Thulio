@@ -1,0 +1,4 @@
+{$DEFINE FMX}
+{$IFDEF VCL}
+  {$UNDEF FMX}
+{$ENDIF}

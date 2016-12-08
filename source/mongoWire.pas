@@ -9,7 +9,7 @@ https://github.com/stijnsanders/TMongoWire
 }
 unit mongoWire;
 
-{$D-}
+{$D+}
 {$L-}
 
 interface

@@ -5,20 +5,20 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  uAction_MongoQuery, System.Actions, FMX.ActnList, FMX.Objects, uImageMongo,
-  uMongoQuery, uConexaoMongo, FMX.Controls.Presentation, FMX.Edit, uEditMongo,
-  FMX.Layouts, FMX.ListBox, uComboBoxMongo;
+  System.Actions, FMX.ActnList, FMX.Objects, FMX.Controls.Presentation, FMX.Edit,
+  FMX.Layouts, FMX.ListBox,
+  mongo.Conexao, mongo.Query,
+  mongo.FMX.ActionQuery, mongo.FMX.Image,
+  mongo.FMX.ComboBox, mongo.FMX.Edit;
 
 type
   TForm2 = class(TForm)
     Layout1: TLayout;
-    EditMongo1: TEditMongo;
     MongoConexao1: TMongoConexao;
     MongoQuery1: TMongoQuery;
     ActionList1: TActionList;
     MongoInsert1: TMongoInsert;
     MongoSelectEdit1: TMongoSelectEdit;
-    ImageMongo1: TImageMongo;
     OpenDialog1: TOpenDialog;
     Button3: TButton;
     OpenDialog2: TOpenDialog;
@@ -28,8 +28,6 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label5: TLabel;
-    EditMongo2: TEditMongo;
-    EditMongo3: TEditMongo;
     Button1: TButton;
     Button2: TButton;
     MongoUpdate1: TMongoUpdate;
@@ -38,6 +36,10 @@ type
     Button4: TButton;
     Button5: TButton;
     Button6: TButton;
+    MongoEdit1: TMongoEdit;
+    MongoImage1: TMongoImage;
+    MongoEdit2: TMongoEdit;
+    MongoEdit3: TMongoEdit;
     procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
@@ -61,7 +63,7 @@ begin
     s   := TStringStream.Create();
     Try
       s.LoadFromFile(OPenDialog1.FileName);
-      ImageMongo1.Bitmap.LoadFromStream(s);
+      MongoImage1.Bitmap.LoadFromStream(s);
     Finally
       FreeAndNil(s);
     End;
