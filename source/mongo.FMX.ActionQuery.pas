@@ -8,11 +8,7 @@ interface
 {$endif}
 
 uses
-  {$ifdef FMX}
     FMX.ActnList, FMX.Forms, FMX.Dialogs,
-  {$else}
-    VCL.ActnList, VCL.Forms,VCL.Dialogs,
-  {$endif}
     System.Actions, System.SysUtils,
     mongo.Query,
     mongo.ui;

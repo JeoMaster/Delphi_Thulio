@@ -230,6 +230,8 @@ begin
     if Supports(Layout.Controls[i], IMongoChecked) then
       (Layout.Controls[i] as IMongoChecked).Checked := False;
 
+    if Supports(Layout.Controls[i], IMongoGroupBox) then
+      (Layout.Controls[i] as IMongoGroupBox).ValueText := '';
   end;
 end;
 
@@ -327,9 +329,6 @@ var
   i: Integer;
   suppMongoControl: Boolean;
   mongoControl: IMongoControl;
-  // Edit: TEditMongo;
-  // ComboBox: TComboBoxMongo;
-  // Image: TImageMongo;
 begin
   MongoDoc := TMongoDocument.Create;
   try
@@ -357,17 +356,24 @@ begin
           end;
 
         // Imagem  Interface
-        if Supports(Layout.Controls[i], IMongoBitmap) and suppMongoControl then
+        if Supports(Layout.Controls[i], IMongoBitmap) then
           with Layout.Controls[i] as IMongoBitmap do
           begin
-            setDataImage(VarToStr(d[MongoCampo]));
+            setDataImage(VarToStrDef(d[MongoCampo],''));
           end;
 
         // checked Interface  (checkbox)
         if Supports(Layout.Controls[i], IMongoChecked) then
-          (Layout.Controls[i] as IMongoChecked).Checked := StrToBoolDef(d[(Layout.Controls[i] as IMongoChecked).MongoCampo], False);
+          (Layout.Controls[i] as IMongoChecked).Checked := d[(Layout.Controls[i] as IMongoChecked).MongoCampo];
+          //(Layout.Controls[i] as IMongoChecked).Checked := StrToBoolDef(d[(Layout.Controls[i] as IMongoChecked).MongoCampo], False);
         if Supports(Layout.Controls[i], IMongoJSON) then
           (Layout.Controls[i] as IMongoJSON).JSON := VarToStr(d[(Layout.Controls[i] as IMongoJSON).MongoCampo]);
+
+        // GroupBox Interface
+        if Supports(Layout.Controls[i], IMongoGroupBox) and suppMongoControl then
+        begin
+          (Layout.Controls[i] as IMongoGroupBox).ValueText := VarToStr(d[(mongoControl).MongoCampo]);
+        end;
 
       end;
     except
@@ -445,7 +451,6 @@ begin
             FDataSet.FieldDefs.Add(MongoCampo, ftString, 50);
           Booleano:
             FDataSet.FieldDefs.Add(MongoCampo, ftBoolean);
-
         end;
       end;
   end;
@@ -472,6 +477,8 @@ var
   mongoControl: IMongoControl;
   suppIMongoText: Boolean;
   mongoText: IMongoText;
+  suppIMongoGroupBox: Boolean;
+  mongoGroupBox: IMongoGroupBox;
 begin
   for i := 0 to Pred(Layout.ControlsCount) do
   begin
@@ -479,8 +486,11 @@ begin
     if suppIMongoControl then
       mongoControl := Layout.Controls[i] as IMongoControl;
     suppIMongoText := Supports(Layout.Controls[i], IMongoText);
+    suppIMongoGroupBox := Supports(Layout.Controls[i], IMongoGroupBox);
     if suppIMongoText then
       mongoText := Layout.Controls[i] as IMongoText;
+    if suppIMongoGroupBox then
+      mongoGroupBox := Layout.Controls[i] as IMongoGroupBox;
 
     // Mongo Edit
     if Supports(Layout.Controls[i], IMongoAutoInc) then
@@ -532,8 +542,12 @@ begin
             end;
         end;
       end;
-    end
-    else
+    end else if suppIMongoControl and suppIMongoGroupBox then
+    begin
+         with mongoControl do
+           if Supports(Layout.Controls[i], IMongoGroupBox) then
+             MongoDoc.addKey(MongoCampo, mongoGroupBox.ValueText, Texto);
+    end else
       // Mongo Image
       if Supports(Layout.Controls[i], IMongoBitmap) then
         with Layout.Controls[i] as IMongoBitmap do
@@ -552,25 +566,47 @@ function TMongoQuery.GetSequence(AMongoCampo: string): Int64;
 Var
   d, dChave, e: IBSONDocument; // Obj BSON
   j: TJSONObject; // Obj JSON
-  sField: TStringBuilder;
-  sCollectionSeq, sCollectionField, sComand_Save, sComand_Modify: string;
+  sField, sComand_Save, sComand_Modify: TStringBuilder;
+  sCollectionSeq, sCollectionField: string;
   iRetorno: Int64;
-  R: TStringList;
 begin
   // -- Gerando o Sequence para o AutoIncremento
   sField := TStringBuilder.Create;
+  sComand_Save := TStringBuilder.Create;
+  sComand_Modify := TStringBuilder.Create;
   j := TJSONObject.Create;
   try
+    sComand_Save.clear;
+    sComand_Modify.clear;
     sField.clear;
-    sField.Append('_id_').Append(AMongoCampo);
+    sField.Append('_id_').Append(AnsiLowerCase( AMongoCampo ));
 
     sCollectionSeq := '_sequence';
     sCollectionField := '_id';
 
-    sComand_Save := '{ findAndModify: "' + sCollectionSeq + '", query: { ' + sCollectionField + ': "' + FCollection + '" }, update: {' +
-      sCollectionField + ': "' + FCollection + '", ' + sField.ToString + ': 0 }, upsert:true }';
-    sComand_Modify := '{ findAndModify: "' + sCollectionSeq + '", query: { ' + sCollectionField + ': "' + FCollection + '" }, update: { $inc: { ' +
-      sField.ToString + ': 1 } }, new:true }';
+    sComand_Save.Append('{ findAndModify: "')
+                .Append(sCollectionSeq)
+                .Append('", query: { ')
+                .Append(sCollectionField)
+                .Append(': "')
+                .Append(FCollection)
+                .Append('" }, update: {')
+                .Append(sCollectionField)
+                .Append(': "')
+                .Append(FCollection)
+                .Append('", ')
+                .Append(sField.ToString)
+                .Append(': 0 }, upsert:true }');
+
+    sComand_Modify.Append('{ findAndModify: "')
+                  .Append(sCollectionSeq)
+                  .Append('", query: { ')
+                  .Append(sCollectionField)
+                  .Append(': "')
+                  .Append(FCollection)
+                  .Append('" }, update: { $inc: { ')
+                  .Append(sField.ToString)
+                  .Append(': 1 } }, new:true }');
 
     j.AddPair(sCollectionField, TJSONString.Create(FCollection));
     dChave := JsonToBson(j.ToJSON);
@@ -579,11 +615,11 @@ begin
       d := FMongoConexao.FMongoWire.Get(sCollectionSeq, dChave);
       iRetorno := StrToInt64(VarToStr(d[sField.ToString]));
     except
-      d := JsonToBson(sComand_Save);
+      d := JsonToBson(sComand_Save.ToString);
       e := FMongoConexao.FMongoWire.RunCommand(d);
     end;
     try
-      d := JsonToBson(sComand_Modify);
+      d := JsonToBson(sComand_Modify.ToString);
       e := FMongoConexao.FMongoWire.RunCommand(d);
 
       Result := StrToInt(VarToStr(BSON(e['value'])[sField.ToString]));
@@ -594,6 +630,8 @@ begin
     end;
   finally
     sField.Free;
+    sComand_Save.Free;
+    sComand_Modify.Free;
     j.Free;
   end;
 end;

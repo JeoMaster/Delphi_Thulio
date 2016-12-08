@@ -7,13 +7,24 @@ interface
 {$endif}
 
 uses
-  FMX.StdCtrls, System.Classes;
+  FMX.StdCtrls, System.Classes, mongo.Interf, mongo.Types, mongo.Tipificacoes,
+  System.SysUtils;
 
 type
-  TMongoGroupBox = class(TGroupBox)
+  TMongoGroupBox = class(TGroupBox, IMongoControl, IMongoGroupBox)
   private
+    FCapiton: string;
     FMongoCampo: String;
+    FMongoTipoCampo: TCampo;
     FValueText: string;
+    //--IMongoText
+
+    //--IMongoControl
+    function GetMongoCampo: String;
+    procedure SetMongoCampo(const value: String);
+    function GetMongoTipoCampo: TCampo;
+    procedure SetMongoTipoCampo(const value: TCampo);
+
     procedure EnableSelectedItem;
     procedure CheckSelectedItem;
     procedure SetValueText(const Value: string);
@@ -21,8 +32,10 @@ type
   protected
     procedure Loaded; override;
   public
+    constructor Create(AOwner: TComponent); override;
   published
-    property MongoCampo : String read FMongoCampo write FMongoCampo;
+    property MongoCampo: String read GetMongoCampo write SetMongoCampo;
+    property MongoTipoCampo: TCampo read GetMongoTipoCampo write SetMongoTipoCampo;
     property ValueText: string read GetValueText write SetValueText;
   end;
 
@@ -46,6 +59,12 @@ begin
      end;
 end;
 
+constructor TMongoGroupBox.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FCapiton := Self.Text;
+end;
+
 procedure TMongoGroupBox.EnableSelectedItem;
 var i: integer;
 begin
@@ -61,6 +80,17 @@ begin
      end;
 end;
 
+function TMongoGroupBox.GetMongoCampo: String;
+begin
+     Result := FMongoCampo;
+end;
+
+function TMongoGroupBox.GetMongoTipoCampo: TCampo;
+begin
+     Result := FMongoTipoCampo;
+end;
+
+
 function TMongoGroupBox.GetValueText: string;
 begin
      CheckSelectedItem;
@@ -71,6 +101,16 @@ procedure TMongoGroupBox.Loaded;
 begin
      EnableSelectedItem;
      inherited;
+end;
+
+procedure TMongoGroupBox.SetMongoCampo(const value: String);
+begin
+     FMongoCampo := value;
+end;
+
+procedure TMongoGroupBox.SetMongoTipoCampo(const value: TCampo);
+begin
+     FMongoTipoCampo := value;
 end;
 
 procedure TMongoGroupBox.SetValueText(const Value: string);

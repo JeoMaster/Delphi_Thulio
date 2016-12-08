@@ -27,14 +27,7 @@ type
     // property DataImage : String read getDataImage write setDataImage;
   end;
 
-procedure Register;
-
 implementation
-
-procedure Register;
-begin
-  RegisterComponents('Mongo Components', [TMongoImage]);
-end;
 
 procedure TMongoImage.setDataImage(const Value: String);
 var
@@ -42,6 +35,7 @@ var
 begin
   if Value <> '' then
   begin
+    Clear;
     s := TStringStream.Create();
     try
       s.WriteString(Value);

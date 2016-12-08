@@ -98,6 +98,13 @@ type
     property MongoCampo: String read GetMongoCampo write SetMongoCampo;
   end;
 
+  IMongoGroupBox = interface
+    ['{AA49BF75-8EE0-4ED1-BACC-865AC6F76996}']
+    procedure SetValueText(const Value: string);
+    function GetValueText: string;
+    property ValueText: string read GetValueText write SetValueText;
+  end;
+
 implementation
 
 end.

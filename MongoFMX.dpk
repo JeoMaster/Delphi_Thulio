@@ -32,9 +32,6 @@ package MongoFMX;
 requires
   rtl,
   designide,
-  vcl,
-  vclactnband,
-  vclx,
   xmlrtl,
   fmx,
   dbrtl,

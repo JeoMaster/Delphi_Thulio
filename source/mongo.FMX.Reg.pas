@@ -17,8 +17,8 @@ procedure Register;
 begin
      RegisterComponents('Mongo Components', [TMongoEdit, TMongoListBox,
                                              TMongoCheckBox, TMongoGroupBox,
-                                             TMongoImage, TMongoListBox,
-                                             TMongoListBoxItem]);
+                                             TMongoImage, TMongoComboBox,
+                                             TMongoListBox, TMongoListBoxItem]);
 
      RegisterActions('Mongo Components', [TMongoInsert,
                                           TMongoUpdate,

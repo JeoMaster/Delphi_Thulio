@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  uMongoQuery, uConexaoMongo, Vcl.StdCtrls, mongo.Vcl.MongoEdit, Vcl.ExtCtrls,
+  mongo.Query, mongo.Conexao, Vcl.StdCtrls, mongo.Vcl.MongoEdit, Vcl.ExtCtrls,
   System.Actions, Vcl.ActnList, mongo.Vcl.Actions, mongo.Vcl.CheckBox,
   mongo.Vcl.Image, Vcl.ExtDlgs, mongo.VCL.Listbox, mongo.VCL.Combobox,
   mongo.VCL.RadioGroup, Vcl.ComCtrls, mongo.VCL.DateTimePicker, mongo.VCL.memo,

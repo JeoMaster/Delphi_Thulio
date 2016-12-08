@@ -6,7 +6,7 @@ interface
 {$IFDEF FMX}
   'codigo não pode ser utilizado em projetos FMX}
 {$ENDIF}
-  uses System.SysUtils, System.Classes, mongo.Interf, mongo.Types, Vcl.WinXCalendars, uMongo_Tipificacoes;
+  uses System.SysUtils, System.Classes, mongo.Interf, mongo.Types, Vcl.WinXCalendars, mongo.Tipificacoes;
 
 type
 

@@ -3,36 +3,33 @@ unit mongo.UI;
 interface
 
 uses
-{$IFDEF FMX}
-  FMX.Layouts,
- // FMX.Controls,
-{$ELSE}
+{$IFDEF VCL}
   VCL.StdCtrls,
   VCL.ExtCtrls,
   VCL.Controls,
+{$ELSE}
+  FMX.Layouts,
 {$ENDIF}
   System.Classes;
 
 type
-   {$ifdef FMX}
-      TLayout = FMX.Layouts.TLayout;
-   {$else}
+   {$IFDEF VCL}
       TLayout = VCL.ExtCtrls.TPanel;
       TMongoControlHelper = class helper for TWinControl
       public
         function ControlsCount:integer;
       end;
-   {$endif}
-
-
+   {$ELSE}
+      TLayout = FMX.Layouts.TLayout;
+   {$ENDIF}
 
 implementation
 
-{$ifndef FMX}
+{$IFDEF VCL}
 function TMongoControlHelper.ControlsCount: integer;
 begin
    result := inherited ControlCount;
 end;
-{$endif}
+{$ENDIF}
 
 end.

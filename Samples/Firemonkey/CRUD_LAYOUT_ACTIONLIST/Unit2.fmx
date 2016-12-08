@@ -3,34 +3,21 @@ object Form2: TForm2
   Top = 0
   Caption = 'Form2'
   ClientHeight = 307
-  ClientWidth = 502
+  ClientWidth = 478
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
   object Layout1: TLayout
     Align = Client
-    Size.Width = 502.000000000000000000
+    Size.Width = 478.000000000000000000
     Size.Height = 307.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    object EditMongo1: TEditMongo
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      TabOrder = 0
-      Position.X = 112.000000000000000000
-      Position.Y = 32.000000000000000000
-      Size.Width = 57.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      MongoTipoCampo = Numerico
-      MongoCampo = 'CODIGO'
-      AutoInc = True
-      CampoChave = True
-    end
     object ToolBar1: TToolBar
       Align = Bottom
       Position.Y = 267.000000000000000000
-      Size.Width = 502.000000000000000000
+      Size.Width = 478.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -39,7 +26,7 @@ object Form2: TForm2
         Align = Right
         Enabled = True
         ImageIndex = -1
-        Position.X = 262.000000000000000000
+        Position.X = 238.000000000000000000
         Size.Width = 80.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
@@ -51,7 +38,7 @@ object Form2: TForm2
         Align = Right
         Enabled = True
         ImageIndex = -1
-        Position.X = 422.000000000000000000
+        Position.X = 398.000000000000000000
         Size.Width = 80.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
@@ -63,7 +50,7 @@ object Form2: TForm2
         Align = Right
         Enabled = True
         ImageIndex = -1
-        Position.X = 182.000000000000000000
+        Position.X = 158.000000000000000000
         Size.Width = 80.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
@@ -75,7 +62,7 @@ object Form2: TForm2
         Align = Right
         Enabled = True
         ImageIndex = -1
-        Position.X = 342.000000000000000000
+        Position.X = 318.000000000000000000
         Size.Width = 80.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
@@ -93,40 +80,6 @@ object Form2: TForm2
         TabOrder = 9
         Visible = True
       end
-    end
-    object EditMongo2: TEditMongo
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      TabOrder = 4
-      Position.X = 112.000000000000000000
-      Position.Y = 56.000000000000000000
-      Size.Width = 169.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      MongoCampo = 'Nome'
-      AutoInc = False
-      CampoChave = False
-    end
-    object EditMongo3: TEditMongo
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      TabOrder = 3
-      Position.X = 112.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 57.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-      MongoTipoCampo = Numerico
-      MongoCampo = 'Idade'
-      AutoInc = False
-      CampoChave = False
-    end
-    object EditMongo4: TEditMongo
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      TabOrder = 2
-      Position.X = 112.000000000000000000
-      Position.Y = 104.000000000000000000
-      MongoCampo = 'Telefone'
-      AutoInc = False
-      CampoChave = False
     end
     object Label1: TLabel
       Position.X = 8.000000000000000000
@@ -173,7 +126,93 @@ object Form2: TForm2
       TextSettings.HorzAlign = Trailing
       Text = 'UF:'
     end
-    object ComboBoxMongo1: TComboBoxMongo
+    object MongoEdit1: TMongoEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 2
+      Position.X = 112.000000000000000000
+      Position.Y = 29.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoTipoCampo = Numerico
+      MongoCampo = 'CODIGO'
+      AutoInc = True
+      CampoChave = True
+    end
+    object MongoEdit2: TMongoEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      Position.X = 112.000000000000000000
+      Position.Y = 54.000000000000000000
+      Size.Width = 233.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoCampo = 'Nome'
+      AutoInc = False
+      CampoChave = False
+    end
+    object MongoEdit3: TMongoEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 4
+      Position.X = 112.000000000000000000
+      Position.Y = 79.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoTipoCampo = Numerico
+      MongoCampo = 'Idade'
+      AutoInc = False
+      CampoChave = False
+    end
+    object MongoEdit4: TMongoEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 5
+      Position.X = 112.000000000000000000
+      Position.Y = 104.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      MongoCampo = 'Telefone'
+      AutoInc = False
+      CampoChave = False
+    end
+    object MongoCheckBox1: TMongoCheckBox
+      Position.X = 112.000000000000000000
+      Position.Y = 160.000000000000000000
+      TabOrder = 6
+      Text = 'Ativo?'
+      Checked = False
+      MongoCampo = 'Ativo'
+    end
+    object MongoGroupBox1: TMongoGroupBox
+      Position.X = 112.000000000000000000
+      Position.Y = 184.000000000000000000
+      Size.Width = 185.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Sexo'
+      TabOrder = 7
+      MongoCampo = 'Sexo'
+      object RadioButton1: TRadioButton
+        Position.X = 8.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 89.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Masculino'
+      end
+      object RadioButton2: TRadioButton
+        Position.X = 96.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 81.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Feminino'
+      end
+    end
+    object MongoComboBox1: TMongoComboBox
       Items.Strings = (
         'Rio de Janeiro'
         'S'#227'o Paulo'
@@ -182,48 +221,13 @@ object Form2: TForm2
         'Mato Grosso do Sul')
       Position.X = 112.000000000000000000
       Position.Y = 136.000000000000000000
-      Size.Width = 169.000000000000000000
+      Size.Width = 233.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 5
+      TabOrder = 8
       MongoCampo = 'UF'
       LookupQuery = MongoQuery2_UF
       LookupDisplayField = 'Nome'
-    end
-    object CheckBoxMongo1: TCheckBoxMongo
-      Position.X = 112.000000000000000000
-      Position.Y = 168.000000000000000000
-      TabOrder = 6
-      Text = 'Ativo'
-      MongoCampo = 'Ativo'
-    end
-    object GroupBoxMongo1: TGroupBoxMongo
-      Position.X = 16.000000000000000000
-      Position.Y = 192.000000000000000000
-      Size.Width = 265.000000000000000000
-      Size.Height = 57.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Sexo'
-      TabOrder = 7
-      MongoCampo = 'Sexo'
-      object RadioButton3: TRadioButton
-        Position.X = 16.000000000000000000
-        Position.Y = 24.000000000000000000
-        Size.Width = 89.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        Text = 'Masculino'
-      end
-      object RadioButton4: TRadioButton
-        Position.X = 160.000000000000000000
-        Position.Y = 24.000000000000000000
-        Size.Width = 89.000000000000000000
-        Size.Height = 19.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        Text = 'Feminino'
-      end
     end
   end
   object MongoConexao1: TMongoConexao
@@ -231,18 +235,18 @@ object Form2: TForm2
     Host = 'localhost'
     Porta = 27017
     Ativar = True
-    Left = 360
-    Top = 8
+    Left = 400
+    Top = 56
   end
   object MongoQuery1_Cliente: TMongoQuery
     MongoConexao = MongoConexao1
     Ativar = False
     Collection = 'CLIENTES'
-    Left = 360
-    Top = 64
+    Left = 400
+    Top = 112
   end
   object ActionList1: TActionList
-    Left = 448
+    Left = 400
     Top = 8
     object MongoInsert1: TMongoInsert
       Category = 'Mongo Components'
@@ -279,7 +283,7 @@ object Form2: TForm2
     MongoConexao = MongoConexao1
     Ativar = False
     Collection = 'UnidadeFederativa'
-    Left = 360
-    Top = 120
+    Left = 400
+    Top = 168
   end
 end

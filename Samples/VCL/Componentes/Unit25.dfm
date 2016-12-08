@@ -221,6 +221,7 @@ object Form25: TForm25
       ParentFont = False
       TabOrder = 11
       MongoCampo = 'Calendario'
+      MongoTipoCampo = Texto
     end
   end
   object Button1: TButton
