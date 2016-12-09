@@ -1,4 +1,5 @@
 * 2016/11/21 *
+* 2016
 1 - Incluir o diretorio source do componente nos librarys do Delphi
 2 - Abrir o Arquivo MongoProjectGroup.groupproj
 3 - Compilar All
