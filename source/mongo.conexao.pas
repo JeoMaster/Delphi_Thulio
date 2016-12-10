@@ -3,7 +3,7 @@ unit mongo.Conexao;
 interface
 
 uses
-  System.SysUtils, System.Classes, mongoWire, bsonDoc;
+  System.SysUtils, System.Classes, mongoWire, bsonDoc, mongoAuth3;
 
 type
   TMongoConexao = class(TComponent)
@@ -12,6 +12,9 @@ type
     FHost: String;
     FPorta: Integer;
     FAtivar: Boolean;
+    FUser : String;
+    FPassword : String;
+    FAuthenticate : Boolean;
     procedure setAtivar(const Value: Boolean);
   public
     FMongoWire: TMongoWire;
@@ -22,6 +25,9 @@ type
     property Host: String read FHost write FHost;
     property Porta: Integer read FPorta write FPorta;
     property Ativar: Boolean read FAtivar write setAtivar;
+    property User : String read FUser write FUser;
+    property Password : String read FPassword write FPassword;
+    Property Authenticate : Boolean read FAuthenticate write FAuthenticate;
   end;
 
 implementation
@@ -45,9 +51,14 @@ end;
 
 procedure TMongoConexao.setAtivar(const Value: Boolean);
 begin
-  FMongoWire := TMongoWire.Create(FDatabase);
-  FMongoWire.Open(FHost, FPorta);
-  FAtivar := Value;
+  if Value then
+  begin
+    FMongoWire := TMongoWire.Create(FDatabase);
+    FMongoWire.Open(FHost, FPorta);
+    if FAuthenticate then
+      MongoWireAuthenticate(FMongoWire, User, Password);
+    FAtivar := Value;
+  end;
 end;
 
 end.
