@@ -1,4 +1,4 @@
-package MongoVCLAniversary;
+package MongoVCLAnniversary;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -34,8 +34,8 @@ requires
   vclwinx;
 
 contains
-  mongo.Aniversary.Reg in 'source\mongo.Aniversary.Reg.pas',
-  mongo.Aniversary.CalendarView in 'source\mongo.Aniversary.CalendarView.pas',
-  mongo.Aniversary.ToggleSwitch in 'source\mongo.Aniversary.ToggleSwitch.pas';
+  mongo.Anniversary.Reg in 'source\mongo.Anniversary.Reg.pas',
+  mongo.Anniversary.CalendarView in 'source\mongo.Anniversary.CalendarView.pas',
+  mongo.Anniversary.ToggleSwitch in 'source\mongo.Anniversary.ToggleSwitch.pas';
 
 end.

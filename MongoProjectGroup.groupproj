@@ -12,7 +12,7 @@
         <Projects Include="MongoFMX.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="MongoVCLAniversary.dproj">
+        <Projects Include="MongoVCLAnniversary.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -50,23 +50,23 @@
     <Target Name="MongoFMX:Make">
         <MSBuild Projects="MongoFMX.dproj" Targets="Make"/>
     </Target>
-    <Target Name="MongoVCLAniversary">
-        <MSBuild Projects="MongoVCLAniversary.dproj"/>
+    <Target Name="MongoVCLAnniversary">
+        <MSBuild Projects="MongoVCLAnniversary.dproj"/>
     </Target>
-    <Target Name="MongoVCLAniversary:Clean">
-        <MSBuild Projects="MongoVCLAniversary.dproj" Targets="Clean"/>
+    <Target Name="MongoVCLAnniversary:Clean">
+        <MSBuild Projects="MongoVCLAnniversary.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MongoVCLAniversary:Make">
-        <MSBuild Projects="MongoVCLAniversary.dproj" Targets="Make"/>
+    <Target Name="MongoVCLAnniversary:Make">
+        <MSBuild Projects="MongoVCLAnniversary.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="MongoCore;MongoVCL;MongoFMX;MongoVCLAniversary"/>
+        <CallTarget Targets="MongoCore;MongoVCL;MongoFMX;MongoVCLAnniversary"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MongoCore:Clean;MongoVCL:Clean;MongoFMX:Clean;MongoVCLAniversary:Clean"/>
+        <CallTarget Targets="MongoCore:Clean;MongoVCL:Clean;MongoFMX:Clean;MongoVCLAnniversary:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MongoCore:Make;MongoVCL:Make;MongoFMX:Make;MongoVCLAniversary:Make"/>
+        <CallTarget Targets="MongoCore:Make;MongoVCL:Make;MongoFMX:Make;MongoVCLAnniversary:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
