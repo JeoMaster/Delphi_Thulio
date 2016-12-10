@@ -9,8 +9,8 @@ uses
   System.Actions, Vcl.ActnList, mongo.Vcl.Actions, mongo.Vcl.CheckBox,
   mongo.Vcl.Image, Vcl.ExtDlgs, mongo.VCL.Listbox, mongo.VCL.Combobox,
   mongo.VCL.RadioGroup, Vcl.ComCtrls, mongo.VCL.DateTimePicker, mongo.VCL.memo,
-  mongo.VCL.RadioButton, Vcl.WinXCalendars, mongo.Aniversary.CalendarPicker,
-  Vcl.WinXCtrls, mongo.Aniversary.ToggleSwitch, mongo.Aniversary.CalendarView;
+  mongo.VCL.RadioButton, Vcl.WinXCalendars, mongo.Anniversary.CalendarPicker,
+  Vcl.WinXCtrls, mongo.Anniversary.ToggleSwitch, mongo.Anniversary.CalendarView;
 
 type
   TForm25 = class(TForm)

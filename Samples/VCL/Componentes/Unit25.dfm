@@ -304,6 +304,7 @@ object Form25: TForm25
     Host = 'localhost'
     Porta = 27017
     Ativar = True
+    Authenticate = False
     Left = 480
     Top = 112
   end
