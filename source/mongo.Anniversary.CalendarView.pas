@@ -1,4 +1,4 @@
-unit mongo.Aniversary.CalendarPicker;
+unit mongo.Anniversary.CalendarView;
 
 interface
 
@@ -6,13 +6,11 @@ interface
 {$IFDEF FMX}
   'codigo não pode ser utilizado em projetos FMX}
 {$ENDIF}
-uses
-  System.SysUtils, System.Classes, Vcl.WinXCalendars,
-  mongo.Interf, mongo.Types, mongo.Tipificacoes;
+  uses System.SysUtils, System.Classes, mongo.Interf, mongo.Types, Vcl.WinXCalendars, mongo.Tipificacoes;
 
 type
 
-  TMongoCalendarPicker = class(TCalendarPicker, IMongoControl, IMongoText)
+  TMongoCalendarView = class(TCalendarView, IMongoControl, IMongoText)
   private
     FMongoCampo: string;
     FMongoTipoCampo: TCampo;
@@ -39,47 +37,47 @@ implementation
 
 { TMongoGroupBox }
 
-function TMongoCalendarPicker.GetMongoCampo: String;
+function TMongoCalendarView.GetMongoCampo: String;
 begin
   result := FMongoCampo;
 end;
 
-function TMongoCalendarPicker.GetMongoTipoCampo: TCampo;
+function TMongoCalendarView.GetMongoTipoCampo: TCampo;
 begin
   result := FMongoTipoCampo;
 end;
 
-function TMongoCalendarPicker.GetText: String;
+function TMongoCalendarView.GetText: String;
 begin
   result := DateToStr(Date)
 end;
 
-procedure TMongoCalendarPicker.SetMongoCampo(const value: String);
+procedure TMongoCalendarView.SetMongoCampo(const value: String);
 begin
   FMongoCampo := value;
 end;
 
-procedure TMongoCalendarPicker.SetMongoTipoCampo(const value: TCampo);
+procedure TMongoCalendarView.SetMongoTipoCampo(const value: TCampo);
 begin
   FMongoTipoCampo := value;
 end;
 
-procedure TMongoCalendarPicker.SetText(const value: string);
+procedure TMongoCalendarView.SetText(const value: string);
 begin
     Date := strToDateTimeDef(value, 0);
 end;
 
-function TMongoCalendarPicker.toDataHora: TDateTime;
+function TMongoCalendarView.toDataHora: TDateTime;
 begin
   result := strToDateTimeDef(Text, 0);
 end;
 
-function TMongoCalendarPicker.toMoeda: Currency;
+function TMongoCalendarView.toMoeda: Currency;
 begin
   result := strToFloatDef(Text, 0);
 end;
 
-function TMongoCalendarPicker.toNumerico: Integer;
+function TMongoCalendarView.toNumerico: Integer;
 begin
   result := strToIntDef(Text, 0);
 end;

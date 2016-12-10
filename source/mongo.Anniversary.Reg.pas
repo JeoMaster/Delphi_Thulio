@@ -1,4 +1,4 @@
-unit mongo.Aniversary.Reg;
+unit mongo.Anniversary.Reg;
 
 interface
 
@@ -8,8 +8,8 @@ procedure Register;
 
 implementation
 
-uses mongo.Aniversary.CalendarPicker, mongo.Aniversary.ToggleSwitch,
-  mongo.Aniversary.CalendarView;
+uses mongo.Anniversary.CalendarPicker, mongo.Anniversary.ToggleSwitch,
+  mongo.Anniversary.CalendarView;
 
 procedure Register;
 begin
