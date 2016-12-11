@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{17C431CF-C281-46DC-9A6F-787F7E8B820F}</ProjectGuid>
-        <MainSource>MongoVCLAniversary.dpk</MainSource>
+        <MainSource>MongoVCLAnniversary.dpk</MainSource>
         <ProjectVersion>18.2</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <Base>True</Base>
@@ -37,7 +37,7 @@
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_DcpOutput>.\package</DCC_DcpOutput>
         <DCC_BplOutput>.\package</DCC_BplOutput>
-        <SanitizedProjectName>MongoVCLAniversary</SanitizedProjectName>
+        <SanitizedProjectName>MongoVCLAnniversary</SanitizedProjectName>
         <GenPackage>true</GenPackage>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
@@ -86,9 +86,9 @@
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="MongoCore.dcp"/>
         <DCCReference Include="vclwinx.dcp"/>
-        <DCCReference Include="source\mongo.Aniversary.Reg.pas"/>
-        <DCCReference Include="source\mongo.Aniversary.CalendarView.pas"/>
-        <DCCReference Include="source\mongo.Aniversary.ToggleSwitch.pas"/>
+        <DCCReference Include="source\mongo.Anniversary.Reg.pas"/>
+        <DCCReference Include="source\mongo.Anniversary.CalendarView.pas"/>
+        <DCCReference Include="source\mongo.Anniversary.ToggleSwitch.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -107,7 +107,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">MongoVCLAniversary.dpk</Source>
+                    <Source Name="MainSource">MongoVCLAnniversary.dpk</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="c:\fontes\BPLBerlin\JclVcl.bpl">JEDI Code Library VCL package</Excluded_Packages>
@@ -138,9 +138,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="package\MongoVCLAniversary.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="package\MongoVCLAnniversary.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>MongoVCLAniversary.bpl</RemoteName>
+                        <RemoteName>MongoVCLAnniversary.bpl</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
