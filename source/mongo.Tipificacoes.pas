@@ -32,6 +32,7 @@ implementation
 class function TMongoTipificacao.toDataHora(AText: string): TDateTime;
 var aux : TDateTime;
 begin
+     Result := Now;
      if TryStrToDateTime(AText, aux) then
         Result := StrToDateTime(AText)
 end;
@@ -39,6 +40,7 @@ end;
 class function TMongoTipificacao.toMoeda(AText: string): Currency;
 var aux : Currency;
 begin
+     Result := 0.00;
      if (Pos('.', AText) > 0) and (Pos(',', AText) > 0) then
         AText := StringReplace(AText, '.', '', [rfReplaceAll, rfIgnoreCase])
      else
@@ -51,6 +53,7 @@ end;
 class function TMongoTipificacao.toNumerico(AText: string): Integer;
 var aux : Integer;
 begin
+     Result := 0;
      if TryStrToInt(AText, aux) then
         Result := StrToInt(AText)
 end;

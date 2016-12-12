@@ -35,6 +35,9 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Description>DmongoBr - Componente FMX para MongoRAD</DCC_Description>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);FileDescription=$(MSBuildProjectName);ProductName=$(MSBuildProjectName)</VerInfo_Keys>
         <DCC_Define>FMX;$(DCC_Define)</DCC_Define>
         <DCC_BplOutput>.\package</DCC_BplOutput>
         <DCC_DcpOutput>.\package</DCC_DcpOutput>

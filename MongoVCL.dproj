@@ -35,6 +35,9 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Description>DmongoBr - Componente VCL para MongoRAD</DCC_Description>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_DcpOutput>.\package</DCC_DcpOutput>
         <DCC_BplOutput>.\package</DCC_BplOutput>
         <DCC_UnitSearchPath>.\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
@@ -55,7 +58,7 @@
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <DCC_UsePackage>rtl;MongoCore;MongoFMX;dsnap;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>rtl;dsnap;MongoCore;$(DCC_UsePackage)</DCC_UsePackage>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -69,7 +72,7 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_Description>Componente VCL para MongoRAD</DCC_Description>
+        <DCC_Description>DmongoBr - Componente VCL para MongoRAD</DCC_Description>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -88,9 +91,18 @@
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="MongoCore.dcp"/>
         <DCCReference Include="dsnap.dcp"/>
-        <DCCReference Include="source\mongo.VCL.Reg.pas"/>
         <DCCReference Include="source\mongo.VCL.Actions.pas"/>
+        <DCCReference Include="source\mongo.VCL.CheckBox.pas"/>
+        <DCCReference Include="source\mongo.VCL.Combobox.pas"/>
+        <DCCReference Include="source\mongo.VCL.DateTimePicker.pas"/>
+        <DCCReference Include="source\mongo.VCL.Image.pas"/>
+        <DCCReference Include="source\mongo.VCL.Listbox.pas"/>
+        <DCCReference Include="source\mongo.VCL.MaskEdit.pas"/>
         <DCCReference Include="source\mongo.VCL.memo.pas"/>
+        <DCCReference Include="source\mongo.VCL.MongoEdit.pas"/>
+        <DCCReference Include="source\mongo.VCL.RadioButton.pas"/>
+        <DCCReference Include="source\mongo.VCL.RadioGroup.pas"/>
+        <DCCReference Include="source\mongo.VCL.Reg.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

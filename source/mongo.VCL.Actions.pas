@@ -21,7 +21,7 @@ interface
 
 {$I mongo.inc}
 {$IFDEF FMX}
-  'codigo não pode ser utilizado em projetos VCL}
+  'codigo não pode ser utilizado em projetos FMX}
 {$ENDIF}
 uses
   VCL.ActnList, VCL.Forms, VCL.Dialogs, System.Actions, System.SysUtils,

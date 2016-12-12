@@ -26,6 +26,7 @@ package MongoVCLAnniversary;
 {$DEFINE DEBUG}
 {$DEFINE VCL}
 {$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'DmongoBr - Componente Anniversary para MongoRAD'}
 {$IMPLICITBUILD ON}
 
 requires

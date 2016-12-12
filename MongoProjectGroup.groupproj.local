@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2016/12/03 23:40:21.000.666,C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjectGroup2.groupproj=C:\DMongo\MongoProjectGroup.groupproj</Transaction>
+    <Transaction>2016/12/03 23:40:21.000.666,C:\DMongo\MongoProjectGroup.groupproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjectGroup2.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="C:\Users\Thulio Bittencourt\Documents\Embarcadero\Studio\Projects\Project1.dproj"/>
+		<Projects ActiveProject="C:\Componentes\TMongoComponents\trunk\MongoCore.dproj"/>
 	</Default.Personality>
 </BorlandProject>

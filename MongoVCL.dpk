@@ -26,7 +26,7 @@ package MongoVCL;
 {$DEFINE DEBUG}
 {$DEFINE VCL}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Componente VCL para MongoRAD'}
+{$DESCRIPTION 'DmongoBr - Componente VCL para MongoRAD'}
 {$IMPLICITBUILD ON}
 
 requires
@@ -36,8 +36,17 @@ requires
   dsnap;
 
 contains
-  mongo.VCL.Reg in 'source\mongo.VCL.Reg.pas',
   mongo.VCL.Actions in 'source\mongo.VCL.Actions.pas',
-  mongo.VCL.memo in 'source\mongo.VCL.memo.pas';
+  mongo.VCL.CheckBox in 'source\mongo.VCL.CheckBox.pas',
+  mongo.VCL.Combobox in 'source\mongo.VCL.Combobox.pas',
+  mongo.VCL.DateTimePicker in 'source\mongo.VCL.DateTimePicker.pas',
+  mongo.VCL.Image in 'source\mongo.VCL.Image.pas',
+  mongo.VCL.Listbox in 'source\mongo.VCL.Listbox.pas',
+  mongo.VCL.MaskEdit in 'source\mongo.VCL.MaskEdit.pas',
+  mongo.VCL.memo in 'source\mongo.VCL.memo.pas',
+  mongo.VCL.MongoEdit in 'source\mongo.VCL.MongoEdit.pas',
+  mongo.VCL.RadioButton in 'source\mongo.VCL.RadioButton.pas',
+  mongo.VCL.RadioGroup in 'source\mongo.VCL.RadioGroup.pas',
+  mongo.VCL.Reg in 'source\mongo.VCL.Reg.pas';
 
 end.

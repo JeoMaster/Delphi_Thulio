@@ -86,10 +86,11 @@ var
   JA: Array of TJSONObject;
   I: Integer;
   K1, K2: TKeys;
-  Doc1, Doc2: TDocument;
-  doc: IBSONDocument;
-  Aux: OleVariant;
-  ds: TJSONValue;
+  Doc1: TDocument;
+//  Doc2: TDocument;
+//  doc: IBSONDocument;
+//  Aux: OleVariant;
+//  ds: TJSONValue;
 begin
   SetLength(JA, Self.FDocuments.Count + 1);
   I := 1;

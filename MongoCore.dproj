@@ -35,6 +35,9 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Description>DmongoBr - Componente para MongoRAD</DCC_Description>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_Define>VCL;$(DCC_Define)</DCC_Define>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DCC_DcpOutput>.\package</DCC_DcpOutput>
@@ -69,7 +72,7 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_Description>Componente para MongoRAD</DCC_Description>
+        <DCC_Description>DmongoBr - Componente para MongoRAD</DCC_Description>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -98,6 +101,13 @@
         <DCCReference Include="source\mongo.Tipificacoes.pas"/>
         <DCCReference Include="source\mongo.Document.pas"/>
         <DCCReference Include="source\mongo.Reg.pas"/>
+        <DCCReference Include="source\mongo.UI.pas"/>
+        <DCCReference Include="source\bsonDoc.pas"/>
+        <DCCReference Include="source\bsonUtils.pas"/>
+        <DCCReference Include="source\mongoAuth.pas"/>
+        <DCCReference Include="source\mongoAuth3.pas"/>
+        <DCCReference Include="source\mongoWire.pas"/>
+        <DCCReference Include="source\simpleSock.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -310,7 +310,8 @@ var //outside of stmReadCString to recycle memory
       ss[sx]:=c;
       stmRead(@c,1);
      end;
-    Result:=UTF8Decode(Copy(ss,1,sx));
+    //ktv Result:=UTF8Decode(Copy(ss,1,sx));
+    Result:=UTF8ToWideString(Copy(ss,1,sx));
   end;
   function stmReadString: WideString;
   var
@@ -328,7 +329,8 @@ var //outside of stmReadCString to recycle memory
     stmRead(@l,1);
     if l<>0 then
       raise EBSONException.Create('BSON string incorrectly terminated at offset '+IntToHex(lstart,8));
-    Result:=UTF8Decode(s);
+    //ktv Result:=UTF8Decode(s);
+    Result:=UTF8ToWideString(s);
   end;
   {$IFDEF BSON_SUPPORT_REGEX}
   function stmReadRegEx: IRegExp2;

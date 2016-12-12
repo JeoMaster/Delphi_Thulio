@@ -26,7 +26,7 @@ package MongoFMX;
 {$DEFINE DEBUG}
 {$DEFINE FMX}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Componente FMX para MongoRAD'}
+{$DESCRIPTION 'DmongoBr - Componente FMX para MongoRAD'}
 {$IMPLICITBUILD ON}
 
 requires

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2016/12/03 23:41:22.000.303,C:\DMongo\MongoCore.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
-    <Transaction>2016/12/04 00:17:30.000.314,C:\Git\Mongo\Unit1.pas=C:\Git\Mongo\source\mongo.interf.pas</Transaction>
-    <Transaction>2016/12/04 00:40:03.000.978,C:\Git\Mongo\Unit1.pas=C:\Git\Mongo\source\mongo.types.pas</Transaction>
+    <Transaction>2016/12/03 23:41:22.000.303,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Package1.dproj=C:\DMongo\MongoCore.dproj</Transaction>
+    <Transaction>2016/12/04 00:17:30.000.314,C:\Git\Mongo\source\mongo.interf.pas=C:\Git\Mongo\Unit1.pas</Transaction>
+    <Transaction>2016/12/04 00:40:03.000.978,C:\Git\Mongo\source\mongo.types.pas=C:\Git\Mongo\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

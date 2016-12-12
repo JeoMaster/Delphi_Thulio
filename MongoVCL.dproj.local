@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2016/12/04 01:56:00.000.452,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Package1.dproj=C:\Git\Mongo\MongoVCL.dproj</Transaction>
-    <Transaction>2016/12/04 01:56:35.000.281,C:\Git\Mongo\Unit1.pas=C:\Git\Mongo\source\mongo.VCL.pas</Transaction>
-    <Transaction>2016/12/04 01:56:51.000.540,C:\Git\Mongo\source\mongo.VCL.Reg=C:\Git\Mongo\source\mongo.VCL.Reg.Reg</Transaction>
-    <Transaction>2016/12/04 02:07:18.000.206,C:\Git\Mongo\Unit1.pas=C:\Git\Mongo\source\mongo.UI.pas</Transaction>
+    <Transaction>2016/12/04 01:56:00.000.452,C:\Git\Mongo\MongoVCL.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2016/12/04 01:56:35.000.281,C:\Git\Mongo\source\mongo.VCL.pas=C:\Git\Mongo\Unit1.pas</Transaction>
+    <Transaction>2016/12/04 01:56:51.000.540,C:\Git\Mongo\source\mongo.VCL.Reg.Reg=C:\Git\Mongo\source\mongo.VCL.Reg</Transaction>
+    <Transaction>2016/12/04 02:07:18.000.206,C:\Git\Mongo\source\mongo.UI.pas=C:\Git\Mongo\Unit1.pas</Transaction>
     <Transaction>2016/12/04 02:07:41.000.649,C:\Git\Mongo\source\mongo.UI.aps=C:\Git\Mongo\source\mongo.UI.aps</Transaction>
-    <Transaction>2016/12/04 17:26:32.000.644,C:\Git\Mongo\Unit1.pas=C:\Git\Mongo\source\mongo.VCL.memo.pas</Transaction>
+    <Transaction>2016/12/04 17:26:32.000.644,C:\Git\Mongo\source\mongo.VCL.memo.pas=C:\Git\Mongo\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

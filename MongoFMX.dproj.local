@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2016/12/03 23:40:38.000.831,C:\DMongo\MongoCore.dproj=C:\DMongo\MongoFMX.dproj</Transaction>
-    <Transaction>2016/12/03 23:41:04.000.145,C:\DMongo\MongoFMX.dproj=C:\DMongo\MongoCore.dproj</Transaction>
-    <Transaction>2016/12/04 01:59:07.000.106,C:\Git\Mongo\source\uEditMongo.pas=C:\Git\Mongo\source\mongo.VCL.MongoEdit.pas</Transaction>
+    <Transaction>2016/12/03 23:40:38.000.831,C:\DMongo\MongoFMX.dproj=C:\DMongo\MongoCore.dproj</Transaction>
+    <Transaction>2016/12/03 23:41:04.000.145,C:\DMongo\MongoCore.dproj=C:\DMongo\MongoFMX.dproj</Transaction>
+    <Transaction>2016/12/04 01:59:07.000.106,C:\Git\Mongo\source\mongo.VCL.MongoEdit.pas=C:\Git\Mongo\source\uEditMongo.pas</Transaction>
   </Transactions>
 </BorlandProject>

@@ -26,7 +26,7 @@ package MongoCore;
 {$DEFINE DEBUG}
 {$DEFINE VCL}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Componente para MongoRAD'}
+{$DESCRIPTION 'DmongoBr - Componente para MongoRAD'}
 {$IMPLICITBUILD ON}
 
 requires
@@ -45,7 +45,14 @@ contains
   mongo.Types in 'source\mongo.Types.pas',
   mongo.Tipificacoes in 'source\mongo.Tipificacoes.pas',
   mongo.Document in 'source\mongo.Document.pas',
-  mongo.Reg in 'source\mongo.Reg.pas';
+  mongo.Reg in 'source\mongo.Reg.pas',
+  mongo.UI in 'source\mongo.UI.pas',
+  bsonDoc in 'source\bsonDoc.pas',
+  bsonUtils in 'source\bsonUtils.pas',
+  mongoAuth in 'source\mongoAuth.pas',
+  mongoAuth3 in 'source\mongoAuth3.pas',
+  mongoWire in 'source\mongoWire.pas',
+  simpleSock in 'source\simpleSock.pas';
 
 end.
 

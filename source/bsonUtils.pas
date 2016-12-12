@@ -580,17 +580,17 @@ begin
           v1:=i;
           if b then inc(i);
           v64:=0;
-          while (i<=l) and (char(jsonData[i]) in ['0'..'9']) do
+          while (i<=l) and (CharInSet(char(jsonData[i]), ['0'..'9'])) do
            begin
             v64:=v64*10+(word(jsonData[i]) and $F);//TODO: detect overflow
             inc(i);
            end;
-          if char(jsonData[i]) in ['.','e','E'] then
+          if CharInSet(char(jsonData[i]), ['.','e','E']) then
            begin
             //float
             inc(i);
-            while (i<=l) and (char(jsonData[i]) in
-              ['0'..'9','-','+','e','E']) do inc(i);
+            while (i<=l) and (CharInSet(char(jsonData[i]),
+                              ['0'..'9','-','+','e','E'])) do inc(i);
             //try except EConvertError?
             SetValue(StrToFloat(Copy(jsonData,v1,i-v1)));
            end
