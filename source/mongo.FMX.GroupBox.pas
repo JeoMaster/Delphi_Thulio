@@ -31,6 +31,7 @@ type
     function GetValueText: string;
   protected
     procedure Loaded; override;
+    procedure DoChanged; override;
   public
     constructor Create(AOwner: TComponent); override;
   published
@@ -65,9 +66,25 @@ begin
   FCapiton := Self.Text;
 end;
 
+procedure TMongoGroupBox.DoChanged;
+var i: integer;
+begin
+  inherited;
+  for i:= 0 to Self.ChildrenCount-1 do
+  begin
+       if (Self.Children[i] is TRadioButton) then
+       begin
+            if TRadioButton(Self.Children[i]).GroupName = '' then
+               TRadioButton(Self.Children[i]).GroupName := Self.Name;
+       end;
+  end;
+
+end;
+
 procedure TMongoGroupBox.EnableSelectedItem;
 var i: integer;
 begin
+     {
      for i:= 0 to Pred(Self.ControlsCount) do
      begin
           if (Self.Controls[i] is TRadioButton) then
@@ -76,6 +93,17 @@ begin
                   TRadioButton(Self.Controls[i]).IsChecked := True
                else
                    TRadioButton(Self.Controls[i]).IsChecked := False;
+          end;
+     end;
+     }
+     for i:= 0 to Self.ChildrenCount-1 do
+     begin
+          if (Self.Children[i] is TRadioButton) then
+          begin
+               if TRadioButton(Self.Children[i]).Text = FValueText then
+                  TRadioButton(Self.Children[i]).IsChecked := True
+               else
+                   TRadioButton(Self.Children[i]).IsChecked := False;
           end;
      end;
 end;
